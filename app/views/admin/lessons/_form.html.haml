@@ -1,0 +1,10 @@
+= form_for lesson, url: admin_lesson_path(lesson) do |f|
+
+  %dd= f.label :name
+  %dt= f.text_field :name
+
+  %dd= f.label :summary
+  %dt= f.text_area :summary
+
+  %dt= f.submit
+

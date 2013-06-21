@@ -1,0 +1,8 @@
+%h1 Lessons
+
+= link_to 'New Lesson', new_admin_lesson_path
+%p
+
+- lessons.each do |lesson|
+  = link_to lesson.name, edit_admin_lesson_path(lesson)
+  %p
