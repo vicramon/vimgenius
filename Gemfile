@@ -12,6 +12,8 @@ gem 'haml-rails'
 gem 'decent_exposure'
 gem 'authem'
 gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'formal'
+gem 'fabrication'
 
 group :development do
   gem 'better_errors'
