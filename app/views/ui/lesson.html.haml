@@ -1,0 +1,43 @@
+%section
+  %aside
+    %ul
+      %li
+        %p Intro
+      %li.active
+        %p Level 1
+      %li
+        %p Level 2
+      %li
+        %p Level 3
+      %li
+        %p Level 4
+      %li
+        %p Level 5
+      %li
+        %p Level 6
+      %li
+        %p Level 7
+
+  %article
+
+    %header
+
+      %hgroup
+        %h2 Vim Basics
+        %h1 Delete two words
+
+      .hint
+        %p For a hint, press the right arrow key
+        .rightarrow
+
+    .terminal
+      %header Question 1
+      %article
+        %input(type="textarea")
+        .details
+          %p.mode Insert Mode
+          %p.timer :10
+
+    .flash_message.success
+      %p d2w is correct! Press Enter or click Next to continue.
+      = link_to "Next", "#", class: "sm_button success"
