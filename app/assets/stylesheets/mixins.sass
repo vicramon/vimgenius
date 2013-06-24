@@ -4,7 +4,9 @@
   @font-face
     font-family: '#{$font_name}'
     src: asset-url('#{$font_path}.eot')
-    src: asset-url('#{$font_path}.eot?iefix') format('eot'), asset-url('#{$font_path}.woff') format('woff'), asset-url('#{$font_path}.ttf') format('truetype'), asset-url('#{$font_path}.svg#webfont') format('svg')
+    src: asset-url('#{$font_path}.eot?#iefix') format('embedded-opentype'), asset-url('#{$font_path}.woff') format('woff'), asset-url('#{$font_path}.ttf') format('truetype'), asset-url('#{$font_path}.svg#webfont') format('svg')
+    font-weight: normal
+    font-style: normal
 
 = box-sizing($type: border-box)
   @each $prefix in moz, ms, webkit
