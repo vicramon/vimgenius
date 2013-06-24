@@ -1,6 +1,7 @@
 class Admin::LessonsController < AdminController
   expose(:lessons) { Lesson.all }
   expose(:lesson, attributes: :lesson_params)
+  expose(:levels) { lesson.levels }
 
   def create
     (redirect_to admin_lessons_path and return) if lesson.save
