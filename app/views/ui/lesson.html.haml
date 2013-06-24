@@ -42,9 +42,9 @@
           %p.mode Insert Mode
           %p.timer :10
 
-    .flash_message.success
+    .success
       %p d2w is correct! Press Enter or click Next to continue.
-      = link_to "Next", "#", class: "sm_button success"
+      = link_to "Next", "#", class: "sm_button next"
 
-    .flash_message.error
+    .error
       %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.

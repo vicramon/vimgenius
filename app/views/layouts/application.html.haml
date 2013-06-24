@@ -7,10 +7,13 @@
     = csrf_meta_tags
     /[if IE]
       = javascript_include_tag "html5"
-  %body
+  %body{class: content_for(:body_class)}
     %header
       %section
-        %h1= link_to "Vim Genius", "#"
+        %h1
+          = link_to "#" do
+            Vim
+            %span> Genius
         = link_to "Tutorial Index", "#", class: "headerlink"
         .session
           %form

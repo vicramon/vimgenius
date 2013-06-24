@@ -1,20 +1,26 @@
-%section#home
-  %h1 Get faster in Vim
-  %p Increase your speed and improve your muscle memory with Vim Genius, a timed flashcard-style course designed to make you faster in Vim. It’s free and you don&rsquo;t need to sign up. What are you waiting for?
-  = link_to "Start Now", "#", class: "button"
-  %p.small Sidenote: Vim Genius won&rsquo;t teach you commands, so take advantage of other resources to learn them before you start. (We have suggestions when you begin.)
+- content_for(:body_class) { 'homepage' }
 
-.terminal
-  %h1 Question 1
-  %article
-    %code
-      :preserve
-        d2w
-        help I don't remember commands.
-        I need Vim Genius!
-        Now if only I remembered how to close Vim so I could get to my browser...
-    .details
-      %p.mode Insert Mode
+.container
+
+  %section#home
+
+    %article
+      %h1 Get faster in Vim
+      %p Increase your speed and improve your muscle memory with Vim Genius, a timed flashcard-style course designed to make you faster in Vim. It’s free and you don&rsquo;t need to sign up. What are you waiting for?
+      = link_to "Start Now", "#", class: "button"
+
+    .terminal
+      %h1 Question 1
+      %article
+        %code
+          :preserve
+            d2w
+            help I don't remember commands.
+            I need Vim Genius!
+            Now if only I remembered how to close Vim so I could get to my browser...
+        .details
+          %p.mode Insert Mode
+          %p.timer :00
 
 %footer
   %section

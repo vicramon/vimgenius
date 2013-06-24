@@ -8,7 +8,7 @@ Description:  Resets default styling of common browsers to a common base
 */
 
 ul,ol { list-style: none; }
-h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; }
+h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; font-weight: normal; }
 ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd, figure, figcaption {
   margin: 0;
   padding: 0; }
@@ -21,3 +21,5 @@ mark {
   background: transparent; }
 abbr { border: none; }
 summary::-webkit-details-marker { display: none; }
+::selection { background: #b9b9b9; color: #000; }
+::-moz-selection { background: #b9b9b9; color: #000; }

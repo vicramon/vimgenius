@@ -15,3 +15,38 @@
   -webkit-transition: $args
   -moz-transition: $args
   -o-transition: $args
+
+= border-radius($radius)
+  -moz-border-radius: $radius
+  border-radius: $radius
+= border-top-right-radius($radius)
+  -moz-border-radius-topright: $radius
+  border-top-right-radius: $radius
+= border-top-left-radius($radius)
+  -moz-border-radius-topleft: $radius
+  border-top-left-radius: $radius
+= border-bottom-right-radius($radius)
+  -moz-border-radius-bottomright: $radius
+  border-bottom-right-radius: $radius
+= border-bottom-left-radius($radius)
+  -moz-border-radius-bottomleft: $radius
+  border-bottom-left-radius: $radius
+= border-top-radius($radius)
+  +border-top-left-radius($radius)
+  +border-top-right-radius($radius)
+= border-bottom-radius($radius)
+  +border-bottom-left-radius($radius)
+  +border-bottom-right-radius($radius)
+= border-left-radius($radius)
+  +border-top-left-radius($radius)
+  +border-bottom-left-radius($radius)
+= border-right-radius($radius)
+  +border-top-right-radius($radius)
+  +border-bottom-right-radius($radius)
+
+= flash_message($color, $border, $icon)
+  font: 15px $museo
+  color: $color
+  border: 1px solid $border
+  background: transparent image-url("icon_#{$icon}.png") 20px 21px no-repeat
+  padding: 20px 20px 20px 45px
