@@ -1,1 +1,34 @@
-%h1 Get started with Vim
+- content_for(:body_class) { 'homepage' }
+
+.container
+
+  %section#home
+
+    %article
+      %h1 Become a Vim Master
+      %p Increase your speed and improve your muscle memory with Vim Genius, a timed flashcard-style course designed to make you faster in Vim. It’s free and you don&rsquo;t need to sign up. What are you waiting for?
+      = link_to "Start Now", "#", class: "button"
+
+    .terminal
+      %h1 Question 1
+      %article
+        %code
+          :preserve
+            d2w
+            help I don't remember commands.
+            I need Vim Genius!
+            Now if only I remembered how to close Vim so I could get to my browser...
+        .details
+          %p.mode Insert Mode
+          %p.timer :00
+
+%footer
+  %section
+    = link_to "Check out our other Vim tutorials for plugins and more!", "#", class: "border-link"
+    %p.credits
+      Developed by
+      = link_to "Vic Ramon", "http://www.vicramon.com", target: :_blank
+      &amp; designed by
+      = link_to "Rye Mason", "http://www.ryemason.com", target: :_blank
+      at
+      = link_to "Hashrocket", "http://www.hashrocket.com", target: :_blank
