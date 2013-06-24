@@ -18,3 +18,32 @@ a
 code
   font: 14px/30px "Monaco"
   color: #cdcdcd
+
+form
+  dt
+    label
+      font: normal 12px $museo
+      color: #666666
+  input[type="email"]
+    font: 12px $museo
+    color: darken(#c7c7c7, 10%)
+    background: #2c2c2c
+    width: 210px
+    border: 0
+    padding: 5px
+    +box-sizing
+    &:focus
+      color: #c7c7c7
+      background: #333333
+      outline: 0
+  input[type="submit"]
+    font: 12px $museo
+    color: #000000
+    text-align: center
+    cursor: pointer
+    border: 0
+    background: #6f6e6e
+    padding: 5px 15px
+    &:hover
+      background: lighten(#6f6e6e, 10%)
+      +transition(background, 200ms linear)
