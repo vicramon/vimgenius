@@ -7,5 +7,18 @@
     = csrf_meta_tags
   %body
     %header
+      %section
+        %h1= link_to "Vim Genius", "#"
+        .session
+          %form
+            %fieldset
+              %dl
+                %dt
+                  %label Sign in with your email address
+                %dd
+                  %input(type="text")
+            %fieldset.actions
+              %input(type="submit" value="Sign In")
 
-    = yield
+    #content
+      = yield
