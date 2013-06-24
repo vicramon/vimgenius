@@ -46,9 +46,11 @@
   +border-top-right-radius($radius)
   +border-bottom-right-radius($radius)
 
-= flash_message($color, $border, $icon)
+= flash_message($color, $border)
   font: 15px $museo
   color: $color
   border: 1px solid $border
-  background: transparent image-url("icon_#{$icon}.png") 20px 21px no-repeat
-  padding: 20px 20px 20px 45px
+  margin-bottom: 20px
+  p
+    margin: 0
+    padding: 0

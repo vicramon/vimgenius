@@ -43,6 +43,8 @@ ul.border
       +transition(background, 200ms linear)
 
 .terminal
+  clear: both
+  margin-bottom: 20px
   h1
     font: 12px "Lucida Grande", "Lucida Sans Unicode", sans-serif
     color: #3b3b3b
@@ -57,11 +59,36 @@ ul.border
     width: 100%
     +box-sizing
     +border-bottom-radius(10px)
+    textarea
+      font: 14px/30px "Monaco", monospace
+      color: #cdcdcd
+      border: 0
+      background: transparent
+      padding: 20px
+      width: 100%
+      height: 200px
+      +box-sizing
+      &:focus
+        outline: 0
     code
       color: #998d62
       display: block
       padding: 20px
       margin-bottom: 30px
+    .show_hint
+      overflow: auto
+      padding: 20px
+      span
+        color: #0e0f0f
+        text-align: center
+        background: #70c4b1
+        display: block
+        float: left
+        padding: 7px
+        margin-right: 5px
+        width: 25px
+        height: 29px
+        +box-sizing
     .details
       color: #0e0f0f
       background: #8d8d8d
@@ -125,60 +152,64 @@ form
   font-size: 16px
 
 .success
-  p
-    float: left
+  background: transparent image-url("icon_checkmark.png") 15px 19px no-repeat
+  overflow: auto
+  padding: 10px 10px 10px 45px
   a
     font-size: 15px
     color: #131313
     display: block
     background: #5fd483
-    margin: -10px 0 0
+    margin: -1px 0 0
     padding: 10px 20px
     float: right
     &:hover
       background: lighten(#5fd483, 10%)
       +transition(background, 200ms linear)
-  +flash_message(#5fd483, #2e3e33, checkmark)
-  overflow: auto
-  padding-right: 10px
-  padding-bottom: 10px
+  +flash_message(#5fd483, #2e3e33)
+  p
+    float: left
+    padding-top: 5px
 
 .error
-  +flash_message(#db6353, #342f2e, x)
+  background: transparent image-url("icon_x.png") 18px 20px no-repeat
+  padding: 15px 15px 15px 45px
+  +flash_message(#db6353, #342f2e)
 
-header
-  background: #131313
-  padding: 15px 0
-  overflow: auto
-  h1
-    float: left
-    display: block
-    a
-      background: transparent image-url("vg_logo.png") center left no-repeat
-      text-transform: uppercase
-      height: 25px
-      padding: 10px 0 0 35px
+body
+  > header
+    background: #131313
+    padding: 15px 0
+    overflow: auto
+    h1
+      float: left
       display: block
-      letter-spacing: -1px
-      span
-        color: #949494
-      &:hover span
-        color: lighten(#949494, 10%)
-  .headerlink
-    font-size: 11px
-    float: left
-    margin: 12px 0 0 55px
-    text-transform: uppercase
-  .session
-    float: right
-    margin-top: 5px
-    fieldset, dt, dd
-      display: inline-block
-    dl
-      dt
-        margin-right: 10px
-      dd
-    .actions
+      a
+        background: transparent image-url("vg_logo.png") center left no-repeat
+        text-transform: uppercase
+        height: 25px
+        padding: 10px 0 0 35px
+        display: block
+        letter-spacing: -1px
+        span
+          color: #949494
+        &:hover span
+          color: lighten(#949494, 10%)
+    .headerlink
+      font-size: 11px
+      float: left
+      margin: 12px 0 0 60px
+      text-transform: uppercase
+    .session
+      float: right
+      margin-top: 5px
+      fieldset, dt, dd
+        display: inline-block
+      dl
+        dt
+          margin-right: 10px
+        dd
+      .actions
 
 .container
   background: #202020
@@ -219,10 +250,9 @@ section
           color: darken(#56c3ab, 20%)
           &:before
             background: darken(#56c3ab, 20%)
-
   article
     float: left
-    padding-top: 35px
+    padding-top: 30px
     width: 830px
     > h1
       color: #5bd0b6
@@ -231,6 +261,36 @@ section
     p
       line-height: 24px
       margin-bottom: 15px
+    .terminal
+      p
+        line-height: auto
+        margin-bottom: 0
+    header
+      hgroup
+        float: left
+        h1
+          font-size: 25px
+          color: #5bd0b6
+          margin-bottom: 15px
+        h2
+          font-size: 14px
+          color: #616161
+          margin-bottom: 5px
+      .hint
+        font-size: 12px
+        float: right
+        margin-top: 24px
+        p
+          float: left
+          margin-right: 10px
+        .rightarrow
+          float: right
+          background: image-url("bg_arrow.png") 4px 15px no-repeat
+          border: 1px solid #959595
+          width: 25px
+          height: 25px
+          margin-top: -5px
+          +border-radius(2px)
   &#home
     overflow: auto
     padding-bottom: 45px
@@ -250,11 +310,11 @@ section
           line-height: 21px
           color: #5d5d5d
     .terminal
+      clear: none
       margin-top: 53px
       position: absolute
       right: 0
       width: 45%
-
 
 footer
   padding: 40px 0
