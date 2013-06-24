@@ -1,0 +1,17 @@
+@import "whitespace-reset"
+
+= font-face($font_name, $font_path)
+  @font-face
+    font-family: '#{$font_name}'
+    src: asset-url('#{$font_path}.eot')
+    src: asset-url('#{$font_path}.eot?iefix') format('eot'), asset-url('#{$font_path}.woff') format('woff'), asset-url('#{$font_path}.ttf') format('truetype'), asset-url('#{$font_path}.svg#webfont') format('svg')
+
+= box-sizing($type: border-box)
+  @each $prefix in moz, ms, webkit
+    -#{$prefix}-box-sizing: $type
+  box-sizing: $type
+
+= transition($args...)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -o-transition: $args

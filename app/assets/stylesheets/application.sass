@@ -1,0 +1,20 @@
+@import "mixins"
+
++font-face("Museo Sans", "MuseoSans_500-webfont")
+$museo: "Museo Sans", "Trebuchet MS", sans-serif
+
+body, html
+  font: normal 14px $museo
+  color: #9c9c9c
+  background: #202020
+
+a
+  color: #5bd0b6
+  text-decoration: none
+  &:hover
+    color: lighten(#5bd0b6, 10%)
+    +transition(color, 200ms linear)
+
+code
+  font: 14px/30px "Monaco"
+  color: #cdcdcd
