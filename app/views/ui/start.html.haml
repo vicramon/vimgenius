@@ -1,0 +1,43 @@
+%section
+  %aside
+    %ul
+      %li.active
+        %p Intro
+      %li
+        %p Level 1
+      %li
+        %p Level 2
+      %li
+        %p Level 3
+      %li
+        %p Level 4
+      %li
+        %p Level 5
+      %li
+        %p Level 6
+      %li
+        %p Level 7
+
+  %article
+
+    %h1 Before you start&hellip;
+
+    %p It&rsquo;s important to know the various commands you can use in Vim, because Vim Genius will test you, not teach you, in timed flashcard-style quizzes.
+
+    %p Some good learning resources include:
+
+    %ul.border
+      %li
+        %h1 The Vim Tutor
+        %p
+          Open your Terminal and enter
+          = succeed('.') do
+            %code vimtutor
+          The Vim Tutor&rsquo;s levels correspond to those used in Vim Genius, so you&rsquo;ll know what to expect for each level.
+      %li
+        %h1= link_to "Another program", "#"
+        %p Recommended for more advanced users.
+
+    %p When you&rsquo;re ready, let&rsquo;s get started!
+
+    = link_to "Start Level 1", class: "button"
