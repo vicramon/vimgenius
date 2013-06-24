@@ -1,8 +1,10 @@
-%h1 Lessons
+%section#admin
+  %h1 Lessons
+  %aside
+    = link_to '+ New Lesson', new_admin_lesson_path
 
-= link_to 'New Lesson', new_admin_lesson_path
-%p
-
-- lessons.each do |lesson|
-  = link_to lesson.name, edit_admin_lesson_path(lesson)
-  %p
+  %br
+  %br
+  - lessons.each do |lesson|
+    = link_to lesson.name, edit_admin_lesson_path(lesson)
+    %p
