@@ -64,9 +64,12 @@ ul.border
       color: #cdcdcd
       border: 0
       background: transparent
+      overflow: auto
       padding: 20px
       width: 100%
       height: 200px
+      max-height: 200px
+      resize: none
       +box-sizing
       &:focus
         outline: 0
@@ -198,7 +201,7 @@ body
     .headerlink
       font-size: 11px
       float: left
-      margin: 12px 0 0 60px
+      margin: 12px 0 0 63px
       text-transform: uppercase
     .session
       float: right
@@ -291,6 +294,29 @@ section
           height: 25px
           margin-top: -5px
           +border-radius(2px)
+    dl
+      &.stats
+        background: #131313
+        border: 1px solid #2c2c2c
+        text-align: center
+        display: inline-block
+        margin: 0 20px 20px 0
+        dt
+          background: #131313
+          font-size: 40px
+          color: #5bd0b6
+          display: block
+          border-bottom: 1px solid #2c2c2c
+          padding: 20px
+        dd
+          background: #1c1c1c
+          font-size: 12px
+          color: #d3d3d3
+          text-transform: uppercase
+          padding: 10px
+    .border_box
+      clear: both
+
   &#home
     overflow: auto
     padding-bottom: 45px
