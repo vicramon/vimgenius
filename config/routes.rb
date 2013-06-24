@@ -1,5 +1,7 @@
 VimGenius::Application.routes.draw do
 
+  get 'ui(/:action)', controller: 'ui'
+
   root to: 'home#index'
 
   resources :admin, only: [:index]
