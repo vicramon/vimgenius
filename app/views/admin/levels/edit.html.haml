@@ -1,4 +1,18 @@
 %section#admin
+  %aside
+    %br
+    %br
+    = link_to '+ New Command', new_admin_lesson_level_command_path(lesson, level)
+    %br
+    %br
+    %h1 Commands
+    %table
+      - commands.each do |command|
+        %tr
+          %td
+            = link_to command.name, [:edit, :admin, lesson, level, command]
+          %td
+            = command.keystroke
   = link_to "<< Back to lesson", edit_admin_lesson_path(lesson)
   %br
   %br

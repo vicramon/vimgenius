@@ -1,0 +1,12 @@
+%fieldset
+
+  %dl
+    %dt= f.label :name
+    %dd= f.text_field :name
+
+  %dl
+    %dt= f.label :keystroke
+    %dd= f.text_field :keystroke
+
+%fieldset.actions
+  = f.submit

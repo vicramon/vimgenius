@@ -17,7 +17,9 @@ VimGenius::Application.routes.draw do
     root to: 'admin#index'
     resources :users, only: [:index]
     resources :lessons do
-      resources :levels
+      resources :levels do
+        resources :commands
+      end
     end
   end
 

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130625133651) do
+ActiveRecord::Schema.define(version: 20130625173639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "commands", force: true do |t|
     t.integer "level_id"
-    t.string  "text"
+    t.string  "name"
     t.string  "keystroke"
   end
 

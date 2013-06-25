@@ -1,0 +1,5 @@
+%section#admin
+  %h1 New Command
+
+  = form_for command, url: admin_lesson_level_commands_path do |f|
+    = render 'form', f: f
