@@ -20,7 +20,9 @@
     #content
       .container
         - if flash[:error]
-          = flash[:error].full_messages.join(", ")
+          .flash.error
+            = flash[:error].full_messages.join(", ")
         - if flash[:notice]
-          = flash[:notice]
+          .flash
+            = flash[:notice]
         = yield
