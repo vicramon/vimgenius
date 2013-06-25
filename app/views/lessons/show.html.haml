@@ -1,0 +1,16 @@
+%section
+  = render 'level_list'
+
+  %article
+
+    %h1 Before you start&hellip;
+
+    %p This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You should complete a lesson in VimTutor, then come back here to quiz yourself when you're done.
+
+    %p
+      To open VimTutor, just open a terminal and type
+      = succeed('.') do
+        %code vimtutor
+
+
+    = link_to "Start Level 1", lesson_level_path(lesson, lesson.levels.first), class: "button small"

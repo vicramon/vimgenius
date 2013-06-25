@@ -1,0 +1,33 @@
+%section
+  = render 'lessons/level_list'
+
+  %article
+
+    %header
+
+      %hgroup
+        %h2= lesson.name
+        %h1 Delete two words
+
+      .hint
+        %p For a hint, press the right arrow key
+        .rightarrow
+
+    .terminal
+      %h1 Question 1
+      .entry
+        %textarea(resizable="no" scrollbar="false")
+        .show_hint
+          %span d
+          %span 2
+          %span
+        .details
+          %p.mode Insert Mode
+          %p.timer :10
+
+    .success
+      %p d2w is correct! Press Enter or click Next to continue.
+      = link_to "Next", "#", class: "sm_button next"
+
+    .error
+      %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.

@@ -1,10 +1,7 @@
 %section#admin
-  %h1 Edit Lesson
-  = render 'form'
-
-  %br
-  %br
-  %aside
+  %aside{ style: 'width:270px;' }
+    %br
+    %br
     = link_to "+ New Level", new_admin_lesson_level_path(lesson)
 
     %br
@@ -14,3 +11,10 @@
       = link_to level.name, edit_admin_lesson_level_path(lesson, level)
       %br
       %br
+
+  %h1 Edit Lesson
+  = render 'form'
+
+  %br
+  %br
+
