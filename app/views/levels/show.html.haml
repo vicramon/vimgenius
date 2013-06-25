@@ -1,3 +1,7 @@
+- content_for :head do
+  = javascript_include_tag "mousetrap"
+  = javascript_include_tag "hint"
+
 %section
   = render 'lessons/level_list'
 
@@ -18,9 +22,8 @@
       .entry
         %textarea(resizable="no" scrollbar="false")
         .show_hint
-          %span d
-          %span 2
-          %span
+          - commands.first.keystrokes.each do |key|
+            %span.hidden_hint= key
         .details
           %p.mode Insert Mode
           %p.timer :10
@@ -33,6 +36,6 @@
       %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.
 
 :css
-  .terminal .entry .show_hint span {
+  .terminal .entry .show_hint span.hidden_hint {
     display:none;
     }
