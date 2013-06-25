@@ -29,6 +29,8 @@ ul.border
   li
     border-top: 1px solid #343434
     padding: 25px
+    &:first-child
+      border-top: 0
     h1
       font-size: 16px
       color: #d9d9d9
@@ -253,6 +255,20 @@ section
           color: darken(#56c3ab, 20%)
           &:before
             background: darken(#56c3ab, 20%)
+  &#tutindex
+    padding: 35px 0 0 173px
+    +box-sizing
+    h1
+      font-size: 25px
+      color: #5bd0b6
+      margin-bottom: 20px
+    p
+      margin-bottom: 20px
+    ul.border
+      h1
+        font-size: 16px
+      p
+        margin-bottom: 0
   article
     float: left
     padding-top: 30px
