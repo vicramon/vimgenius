@@ -1,0 +1,27 @@
+.terminal
+  %h1 Question 1
+
+  .entry
+    %textarea(resizable="no" scrollbar="false")
+
+    .show_hint
+      - command.keystrokes.each do |key|
+        %span.hidden_hint= key
+
+    .details
+      %p.mode Insert Mode
+      %p.timer :10
+
+.success{ data: { attribute: { keystroke: command.keystroke } } }
+  %p d2w is correct! Press Enter or click Next to continue.
+  = link_to "Next", "#", class: "sm_button next"
+
+.error
+  %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.
+
+:css
+  .terminal .entry .show_hint span.hidden_hint {
+  display:none;
+  }
+
+= javascript_include_tag "question"
