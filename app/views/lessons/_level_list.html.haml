@@ -1,7 +1,7 @@
 %aside
   %ul.levels
-    %li.active
+    %li{ class: ("active" if params[:id] == "vim-intro")}
       %p Intro
     - lesson.levels.each do |level|
-      %li
+      %li{ class: ("active" if params[:id] == level.name.parameterize)}
         %p= level.name
