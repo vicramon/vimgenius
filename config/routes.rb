@@ -13,8 +13,9 @@ VimGenius::Application.routes.draw do
   namespace 'admin' do
     root to: 'admin#index'
     resources :users, only: [:index]
-    resources :lessons, only: [:new, :index, :create, :edit, :update]
-    resources :levels
+    resources :lessons, only: [:new, :index, :create, :edit, :update] do
+      resources :levels
+    end
   end
 
 

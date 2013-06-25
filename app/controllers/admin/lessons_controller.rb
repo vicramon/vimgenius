@@ -1,6 +1,6 @@
 class Admin::LessonsController < AdminController
   expose(:lessons) { Lesson.all }
-  expose(:lesson, attributes: :lesson_params)
+  expose(:lesson, attributes: :lesson_params, finder: :find_by_slug)
   expose(:levels) { lesson.levels }
 
   def create

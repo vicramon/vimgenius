@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130621200946) do
+ActiveRecord::Schema.define(version: 20130625133651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,15 @@ ActiveRecord::Schema.define(version: 20130621200946) do
   create_table "lessons", force: true do |t|
     t.string "name"
     t.text   "summary"
+    t.string "slug"
   end
 
   create_table "levels", force: true do |t|
     t.integer "lesson_id"
-    t.integer "number"
+    t.integer "sequence_number"
     t.string  "name"
+    t.string  "slug"
+    t.text    "intro"
   end
 
   add_index "levels", ["lesson_id"], name: "index_levels_on_lesson_id", using: :btree

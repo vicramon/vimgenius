@@ -1,0 +1,8 @@
+%section#admin
+  = link_to "<< Back to lesson", edit_admin_lesson_path(lesson)
+  %br
+  %br
+  %h1 Edit Level
+
+  = form_for level, url: admin_lesson_level_path do |f|
+    = render 'form', f: f

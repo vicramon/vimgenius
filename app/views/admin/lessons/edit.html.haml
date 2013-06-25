@@ -1,7 +1,16 @@
 %section#admin
-  %aside
-    = link_to "+ New Level", new_admin_level_path
-    - levels.each do |level|
-      = link_to level.name, edit_admin_level_path(level)
   %h1 Edit Lesson
   = render 'form'
+
+  %br
+  %br
+  %aside
+    = link_to "+ New Level", new_admin_lesson_level_path(lesson)
+
+    %br
+    %br
+    %h1 Levels
+    - levels.each do |level|
+      = link_to level.name, edit_admin_lesson_level_path(lesson, level)
+      %br
+      %br

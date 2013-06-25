@@ -1,16 +1,5 @@
 %section#admin
   %h1 New Level
 
-  = form_for level, url: admin_level_path(level) do |f|
-    %fieldset
-
-      %dl
-        %dt Name:
-        %dd= f.text_field :name
-
-      %dl
-        %dt Sequence Number:
-        %dd= f.text_field :sequence_number
-
-    %fieldset.actions
-      = f.submit
+  = form_for level, url: admin_lesson_levels_path(lesson) do |f|
+    = render 'form', f: f

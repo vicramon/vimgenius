@@ -1,0 +1,12 @@
+%fieldset
+
+  %dl
+    %dt= f.label :name
+    %dd= f.text_field :name
+
+  %dl
+    %dt= f.label :sequence_number
+    %dd= f.text_field :sequence_number
+
+%fieldset.actions
+  = f.submit
