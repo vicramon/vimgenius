@@ -5,7 +5,7 @@ class Admin::CommandsController < AdminController
 
   def create
     if command.update_attributes(command_params)
-      redirect_to edit_admin_lesson_level_command_path(level.lesson, level, command), notice: "Your changes have been saved."
+      redirect_to edit_admin_lesson_level_path(level.lesson, level), notice: "Your changes have been saved."
       return
     else
       redirect_to new_admin_lesson_level_command_path, flash: { error: command.errors }
