@@ -13,8 +13,8 @@ Feature: Command
     When I follow "New Command"
     And I fill in the command form
     And I press "Create Command"
-    Then I am on that command's edit page
-    And I see that command
+    Then I am on that level's edit page
+    And I see that command on the page
 
   Scenario: Admin edits a command
     Given I have a command
@@ -23,4 +23,4 @@ Feature: Command
     And I fill in the command form
     And I press "Update Command"
     Then I am on that command's edit page
-    And I see that command
+    And I see that command in the form

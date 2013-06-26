@@ -4,8 +4,11 @@ VimGenius::Application.routes.draw do
 
   root to: 'home#index'
   resources :admin, only: [:index]
-  resources :lessons do
-    resources :levels
+
+  resources :lessons, only: [:index, :show] do
+    resources :levels, only: :show do
+      resources :commands, only: :show
+    end
   end
 
   match 'admin/login', to: 'admin#login', as: 'admin_login', via: [:get, :post]

@@ -1,27 +1,43 @@
-.terminal
-  %h1 Question 1
+%article#command
+  %header
+    %hgroup
+      %h2= lesson.name
+      %h1= command.name
 
-  .entry
-    %textarea(resizable="no" scrollbar="false")
+    .hint
+      %p For a hint, press the right arrow key
+      .rightarrow
 
-    .show_hint
-      - command.keystrokes.each do |key|
-        %span.hidden_hint= key
+    .terminal
+      %h1 Question 1
 
-    .details
-      %p.mode Insert Mode
-      %p.timer :00
+      .entry
+        #keys_pressed
 
-.success{ data: { attribute: { keystroke: command.keystroke } } }
-  %p d2w is correct! Press Enter or click Next to continue.
-  = link_to "Next", "#", class: "sm_button next"
+        .show_hint
+          - command.keystroke_split.each do |key|
+            %span.hidden_hint= key
 
-.error
-  %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.
+        .details
+          %p.mode= command.capital_start_mode
+          %p.timer :00
 
-:css
-  .terminal .entry .show_hint span.hidden_hint {
-  display:none;
-  }
+    .success{ data: { attribute: { keystroke: command.keystroke,
+                                   "next-command-url" => lesson_level_command_path(lesson, level, next_command),
+                                   current_cycle: current_cycle }}}
 
-= javascript_include_tag "question"
+
+      %p= "#{command.keystroke_joined} is correct! Press Enter or click Next to continue."
+      = link_to "Next", "#", class: "sm_button next"
+
+    .error
+      %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.
+
+    :css
+      .terminal .entry .show_hint span.hidden_hint {
+      display:none;
+      }
+
+    = javascript_include_tag "mousetrap"
+    = javascript_include_tag "command"
+    = javascript_include_tag "keys_pressed"

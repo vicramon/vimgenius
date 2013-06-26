@@ -3,8 +3,12 @@ When(/^I fill in the command form$/) do
   fill_in "Keystroke", with: "d 2 w"
 end
 
-Then(/^I see that command$/) do
+Then(/^I see that command in the form$/) do
   expect(find_field("Name")['value']).to eq "Delete two words"
+end
+
+Then(/^I see that command on the page$/) do
+  expect(page).to have_content "Delete two words"
 end
 
 Given(/^I have a command$/) do

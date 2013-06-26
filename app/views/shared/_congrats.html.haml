@@ -1,0 +1,47 @@
+%article
+
+  %h1 Congrats, you completed #{level.name}!
+
+  -# %dl.stats
+  -#   %dt 78%
+  -#   %dd Accuracy
+
+  -# %dl.stats
+  -#   %dt 10.0
+  -#   %dd Average Time
+
+  .border_box
+    %h3 Recap
+    %dl.left
+      - commands.each_slice(2).to_a.first.each do |command|
+        %dt= command.keystroke_joined
+        %dd= command.name
+    %dl.right
+      - commands.each_slice(2).to_a.second.each do |command|
+        %dt= command.keystroke_joined
+        %dd= command.name
+
+  - if next_level
+    .border_box.dark
+      %h3 Up Next
+      %dl.left
+        - next_level.commands.each_slice(2).to_a.first.each do |command|
+          %dt= command.keystroke_joined
+          %dd= command.name
+      %dl.right
+        - next_level.commands.each_slice(2).to_a.second.each do |command|
+          %dt= command.keystroke_joined
+          %dd= command.name
+
+    = link_to "Start #{next_level.name}", lesson_level_path(lesson, next_level), class: "button"
+
+  - else
+    %br
+    %br
+    %h1 You're done with the #{lesson.name} Lesson. Way to go kid!
+    I'm real proud of ya. You've just laid the foundation for your Vim future.
+    %p
+    At this point you can start getting some real work done, or check out
+    = link_to 'some of our other lessons.', lessons_path
+
+

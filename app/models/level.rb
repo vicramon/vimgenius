@@ -9,6 +9,10 @@ class Level < ActiveRecord::Base
     slug
   end
 
+  def self.find_by_slug(slug)
+    where(slug: slug).first
+  end
+
   private
 
   def create_slug
