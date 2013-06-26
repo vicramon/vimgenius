@@ -1,6 +1,12 @@
 
-var keystroke = $('.success').attr("data-attribute-keystroke")
-Mousetrap.bind(keystroke, function() { success_command(); return false; });
+var keystrokes = $('.success').attr("data-attribute-keystroke").split("or");
+
+$.each(keystrokes, function(index, keystroke ) {
+  Mousetrap.bind($.trim(keystroke), function() { success_command(); return false; });
+});
+
+Mousetrap.bind("backspace", function() { return false; });
+
 
 $('a.next').click( function() { next_command(); return false; });
 
@@ -15,12 +21,14 @@ function next_command() {
   reset_timer();
   start_timer();
   unbind_enter();
-  unbind_keystroke();
+  unbind_keystrokes();
   replace_question();
 }
 
-function unbind_keystroke() {
-  Mousetrap.unbind(keystroke);
+function unbind_keystrokes() {
+  $.each(keystrokes, function(index, keystroke ) {
+    Mousetrap.unbind(keystroke);
+  });
 }
 
 function unbind_enter() {

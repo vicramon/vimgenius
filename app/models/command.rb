@@ -20,6 +20,12 @@ class Command < ActiveRecord::Base
     keystroke.gsub(" ",'')
   end
 
+  def keystroke_pretty
+    keystroke.gsub!(' ','')
+    keystroke.gsub!('or',' or ')
+    keystroke
+  end
+
   def capital_start_mode
     "-- " + self.start_mode.upcase + " --" unless self.start_mode == "Normal Mode"
   end

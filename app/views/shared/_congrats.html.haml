@@ -14,11 +14,11 @@
     %h3 Recap
     %dl.left
       - commands.each_slice(2).to_a.first.each do |command|
-        %dt= command.keystroke_joined
+        %dt= command.keystroke_pretty
         %dd= command.name
     %dl.right
       - commands.each_slice(2).to_a.second.each do |command|
-        %dt= command.keystroke_joined
+        %dt= command.keystroke_pretty
         %dd= command.name
 
   - if next_level
@@ -26,11 +26,11 @@
       %h3 Up Next
       %dl.left
         - next_level.commands.each_slice(2).to_a.first.each do |command|
-          %dt= command.keystroke_joined
+          %dt= command.keystroke_pretty
           %dd= command.name
       %dl.right
         - next_level.commands.each_slice(2).to_a.second.each do |command|
-          %dt= command.keystroke_joined
+          %dt= command.keystroke_pretty
           %dd= command.name
 
     = link_to "Start #{next_level.name}", lesson_level_path(lesson, next_level), class: "button"

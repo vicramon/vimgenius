@@ -27,11 +27,11 @@
                                    current_cycle: current_cycle }}}
 
 
-      %p= "#{command.keystroke_joined} is correct! Press Enter or click Next to continue."
+      %p= "#{command.keystroke_pretty} is correct! Press Enter or click Next to continue."
       = link_to "Next", "#", class: "sm_button next"
 
     .error
-      %p Sorry, that&rsquo;s not the right answer. Try again or press the right arrow key for a hint.
+      %p Sorry, that&rsquo;s not the answer we're looking for. Try again or press the right arrow key for a hint.
 
     :css
       .terminal .entry .show_hint span.hidden_hint {
