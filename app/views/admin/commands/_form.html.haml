@@ -8,5 +8,9 @@
     %dt= f.label :keystroke
     %dd= f.text_field :keystroke
 
+  %dl
+    %dt= f.label :start_mode
+    %dd= f.select :start_mode, Command::START_MODES
+
 %fieldset.actions
   = f.submit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130625173639) do
+ActiveRecord::Schema.define(version: 20130626133755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130625173639) do
     t.integer "level_id"
     t.string  "name"
     t.string  "keystroke"
+    t.string  "start_mode"
   end
 
   add_index "commands", ["level_id"], name: "index_commands_on_level_id", using: :btree
