@@ -13,11 +13,11 @@
   .border_box
     %h3 Recap
     %dl.left
-      - commands.each_slice(2).to_a.first.each do |command|
+      - left_half(commands).each do |command|
         %dt= command.keystroke_pretty
         %dd= command.name
     %dl.right
-      - commands.each_slice(2).to_a.second.each do |command|
+      - right_half(commands).each do |command|
         %dt= command.keystroke_pretty
         %dd= command.name
 
@@ -25,11 +25,11 @@
     .border_box.dark
       %h3 Up Next
       %dl.left
-        - next_level.commands.each_slice(2).to_a.first.each do |command|
+        - left_half(next_level.commands).each do |command|
           %dt= command.keystroke_pretty
           %dd= command.name
       %dl.right
-        - next_level.commands.each_slice(2).to_a.second.each do |command|
+        - right_half(next_level.commands).each do |command|
           %dt= command.keystroke_pretty
           %dd= command.name
 
