@@ -17,15 +17,22 @@
             %span> Genius
         = link_to "Tutorial Index", lessons_path, class: "headerlink"
         .session
-          %form
-            %fieldset
-              %dl
-                %dt
-                  %label Sign in with your email address
-                %dd
-                  %input(type="email")
-            %fieldset.actions
-              %input(type="submit" value="Sign In")
+          - if current_user
+            %form
+              %dt
+                %label
+                  Welcome #{current_user.email}.
+                  = link_to "Sign out", logout_path
+          - else
+            = form_tag login_path do
+              %fieldset
+                %dl
+                  %dt
+                    = label_tag "email", "Sign up or login with your email address"
+                  %dd
+                    = email_field_tag "email"
+              %fieldset.actions
+                = submit_tag "Sign In"
 
     #content
       = yield

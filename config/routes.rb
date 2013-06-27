@@ -16,6 +16,9 @@ VimGenius::Application.routes.draw do
   get 'start', to: 'home#start', as: 'start'
   get 'lessons/vim-intro/', to: 'lessons#show', as: 'intro_lesson'
 
+  post 'login', to: 'login#create', as: 'login'
+  get 'logout', to: 'login#destroy', as: 'logout'
+
   namespace 'admin' do
     root to: 'admin#index'
     resources :users, only: [:index]
