@@ -5,6 +5,8 @@ class Level < ActiveRecord::Base
   validates :sequence_number, presence: true
   before_save :create_slug
 
+  default_scope -> { order("sequence_number asc") }
+
   def to_param
     slug
   end
