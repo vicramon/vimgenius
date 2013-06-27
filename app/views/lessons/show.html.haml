@@ -7,5 +7,15 @@
 
     %p= lesson.directions.html_safe
 
+    .border_box.dark
+      %h3 Up Next
+      %dl.left
+        - left_half(first_level.commands).each do |command|
+          %dt= command.keystroke_pretty
+          %dd= command.name
+      %dl.right
+        - right_half(first_level.commands).each do |command|
+          %dt= command.keystroke_pretty
+          %dd= command.name
 
-    = link_to "Start #{lesson.levels.first.name}", lesson_level_path(lesson, lesson.levels.first), class: "button small"
+    = link_to "Start #{first_level.name}", lesson_level_path(lesson, first_level), class: "button small"
