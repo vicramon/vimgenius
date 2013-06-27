@@ -9,7 +9,7 @@ class Command < ActiveRecord::Base
   START_MODES = ["Normal Mode", "Insert Mode", "Visual Mode", "Visual Block Mode", "Visual Line Mode"]
 
   def keystroke_split
-    keystroke.split(" ")
+    keystroke.split(//)
   end
 
   def lesson
