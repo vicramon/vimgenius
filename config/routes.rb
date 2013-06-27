@@ -7,6 +7,9 @@ VimGenius::Application.routes.draw do
 
   resources :lessons, only: [:index, :show] do
     resources :levels, only: :show do
+      member do
+        get 'congrats'
+      end
       resources :commands, only: :show
     end
   end

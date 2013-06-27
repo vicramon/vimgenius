@@ -7,7 +7,7 @@ class LoginController < ApplicationController
       user.password_confirmation = "password"
     end
     sign_in(user)
-    redirect_to root_path
+    redirect_to user.last_congrats_path
   end
 
   def destroy

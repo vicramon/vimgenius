@@ -17,7 +17,7 @@
             %span> Genius
         = link_to "Tutorial Index", lessons_path, class: "headerlink"
         .session
-          - if current_user
+          - if signed_in?
             %form
               %dt
                 %label

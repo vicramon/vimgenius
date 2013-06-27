@@ -5,4 +5,7 @@
 
 %section
   = render 'shared/level_list'
-  = render 'shared/command', command: command
+  - if @show_congrats
+    = render 'shared/congrats', command: command
+  - else
+    = render 'shared/command', command: command
