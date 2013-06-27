@@ -3,24 +3,27 @@ class CommandsController < ApplicationController
   expose(:level) { lesson.levels.find_by_slug(params[:level_id]) }
   expose(:commands) { level.commands }
   expose(:command)
+
   expose(:next_command) { next_command }
   expose(:current_cycle) { cycle }
-  expose(:next_level) { next_level }
-
+  expose(:next_level) { level.next_level }
 
   def show
     if cycle == cycles_till_completion
-      render partial: 'shared/congrats', status: 200
+      congrats
     else
       render partial: 'shared/command', status: 200
     end
   end
 
-  private
-
-  def next_level
-    lesson.levels.where(sequence_number: level.sequence_number+1).first
+  def congrats
+    if signed_in?
+      current_user.save_level(level)
+    end
+    render partial: 'shared/congrats', status: 200
   end
+
+  private
 
   def cycles_till_completion
     2

@@ -6,6 +6,11 @@ class LevelsController < ApplicationController
   expose(:command)      { commands.first }
   expose(:next_command) { commands.second }
   expose(:current_cycle) { 1 }
+  expose(:next_level) { level.next_level }
 
+  def congrats
+    @show_congrats = true
+    render :show
+  end
 
 end
