@@ -4,8 +4,8 @@
             Our original course offers testing corresponding to what you'll learn in VimTutor. It’s highly recommended you use VimTutor along with this lesson.
           ],
           directions: %q[
-            This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You pull up VimTutor and come back here to quiz yourself after each lesson.
-            To open VimTutor, just open a terminal and type  vimtutor.
+            This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You should pull up VimTutor and come back here to quiz yourself after each lesson.
+            <p> To open VimTutor, just open a terminal and type <code>vimtutor</code>.
           ]
          )
 
@@ -119,5 +119,3 @@ end
 1.upto(7) do |number|
   create_commands(create_level(number), instance_variable_get("@level_#{number}_commands"))
 end
-
-

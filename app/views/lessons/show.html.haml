@@ -5,12 +5,7 @@
 
     %h1 Before you start&hellip;
 
-    %p This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You pull up VimTutor and come back here to quiz yourself after each lesson.
-
-    %p
-      To open VimTutor, just open a terminal and type
-      = succeed('.') do
-        %code vimtutor
+    %p= lesson.directions.html_safe
 
 
     = link_to "Start #{lesson.levels.first.name}", lesson_level_path(lesson, lesson.levels.first), class: "button small"
