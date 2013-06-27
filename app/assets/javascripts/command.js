@@ -5,9 +5,6 @@ $.each(keystrokes, function(index, keystroke ) {
   Mousetrap.bind($.trim(keystroke), function() { success_command(); return false; });
 });
 
-Mousetrap.bind("backspace", function() { return false; });
-
-
 $('a.next').click( function() { next_command(); return false; });
 
 function success_command() {
