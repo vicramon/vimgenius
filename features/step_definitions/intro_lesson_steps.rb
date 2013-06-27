@@ -10,4 +10,5 @@ Given /^there is a vim intro lesson$/ do
   @lesson = Fabricate(:lesson, name: 'Vim Intro')
   @level  = Fabricate(:level, lesson: @lesson)
   @command = Fabricate(:command, level: @level)
+  @command = Fabricate(:command, keystroke: 'cw', level: @level)
 end
