@@ -1,6 +1,16 @@
 %article
 
-  %h1 Congrats, you completed #{level.name}!
+  - if next_level
+
+    %h1 Congrats, you completed #{level.name}!
+
+  - else
+
+    %h1 You're done with the #{lesson.name} Lesson. Way to go kid!
+    I'm real proud of ya. You've just laid the foundation for your Vim future.
+    %p
+    At this point you can start getting some real work done, or check out
+    = link_to 'some of our other lessons.', lessons_path
 
   -# %dl.stats
   -#   %dt 78%
@@ -34,14 +44,4 @@
           %dd= command.name
 
     = link_to "Start #{next_level.name}", lesson_level_path(lesson, next_level), class: "button"
-
-  - else
-    %br
-    %br
-    %h1 You're done with the #{lesson.name} Lesson. Way to go kid!
-    I'm real proud of ya. You've just laid the foundation for your Vim future.
-    %p
-    At this point you can start getting some real work done, or check out
-    = link_to 'some of our other lessons.', lessons_path
-
 
