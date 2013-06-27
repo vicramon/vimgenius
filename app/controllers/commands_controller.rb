@@ -1,6 +1,6 @@
 class CommandsController < ApplicationController
   expose(:lesson) { Lesson.find_by_slug(params[:lesson_id]) }
-  expose(:level) { Level.find_by_slug(params[:level_id]) }
+  expose(:level) { lesson.levels.find_by_slug(params[:level_id]) }
   expose(:commands) { level.commands }
   expose(:command)
   expose(:next_command) { next_command }

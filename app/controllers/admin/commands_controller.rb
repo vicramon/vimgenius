@@ -1,5 +1,6 @@
 class Admin::CommandsController < AdminController
-  expose(:level) { Level.find_by_slug(params[:level_id]) }
+  expose(:lesson) { Lesson.find_by_slug(params[:lesson_id]) }
+  expose(:level) { lesson.levels.find_by_slug(params[:level_id]) }
   expose(:commands) { level.commands }
   expose(:command, attributes: :command_params)
 
