@@ -141,7 +141,7 @@ form
       background: lighten(#6f6e6e, 10%)
       +transition(background, 200ms linear)
 
-.button
+.button, .gray_button
   background: #5bd0b6
   font-size: 21px
   color: #202020
@@ -154,8 +154,17 @@ form
     background: lighten(#5bd0b6, 10%)
     +transition(color, background 200ms linear)
 
+.gray_button
+  color: #1c1c1c
+  background: #b6b6b6
+  &:hover
+    color: darken(#1c1c1c, 10%)
+    background: lighten(#b6b6b6, 10%)
+
 .small
   font-size: 16px
+  padding: 20px 40px
+  margin-right: 15px
 
 .success
   display: none
