@@ -46,7 +46,6 @@ end
   "d w"       =>  "Delete word",
   "d $ or D"  =>  "Delete to end of line",
   "w"         =>  "Go to next word",
-  "e"         =>  "Go to end of word",
   "$"         =>  "Go to end of text on current line",
   "^"         =>  "Go to beginning of text on current line",
   "0"         =>  "Go to beginning of current line",
@@ -85,7 +84,40 @@ end
  ": % s / x / y / g c" => "Replace x with y in entire file, prompt for changes",
 }
 
+# Go back and add more to this level
+@level_5_commands = {
+  ": ! l s" => "Run shell command ls",
+  "v" => "Open visual mode",
+  "v w" => "Visual select word",
+  "v w d or v w x" => "Visual select word, then delete word",
+  ": w space p l a y . r b" => "Save current file as \"play.rb\"",
+  ": r space h a t . r b" => "Read in file \"hat.rb\"",
+}
 
-1.upto(4) do |number|
+@level_6_commands = {
+  "o" => "Open new line below",
+  "O" => "Open new line above",
+  "e" => "Go to end of word",
+  "2 e" => "Go to end of next word",
+  "a" => "Append after cursor",
+  "R" => "Enter replace mode",
+  "y w" => "Yank word",
+  "v w y" => "Visual select word, then yank",
+  "y $" => "Yank to end of current line",
+  "s e t space i g n o r e c a s e or s e t space ic " => "Change search settings to ignore case",
+  "s e t n o i g n o r e c a s e or n o i c" => "Change search settings to use case",
+}
+
+# add more commands to this level
+@level_7_commands = {
+  ": e space s u n . r b" => "Open file \"sun.rb\"",
+  ": h e l p w" => "Get help for \"w\" command",
+  ": h e l p e" => "Get help for \"e\" command",
+}
+
+
+1.upto(7) do |number|
   create_commands(create_level(number), instance_variable_get("@level_#{number}_commands"))
 end
+
+
