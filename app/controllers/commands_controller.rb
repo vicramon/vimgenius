@@ -3,20 +3,18 @@ class CommandsController < ApplicationController
   expose(:level) { lesson.levels.find_by_slug(params[:level_id]) }
   expose(:commands) { level.commands }
   expose(:command)
-  expose(:next_command) { next_command }
+
   expose(:next_level) { level.next_level }
-  expose(:question_number) { current_index+1 }
 
   def show
-
-    complete = false
-
-    if params[:mastered]
-      User.save_command(command)
+    save_command_if_completed_on_time
+    commands = current_user.commands_remaining_for_level(level)
+    if commands.empty?
+      congrats
+    else
+      @command = commands.shuffle.first
+      render(partial: 'shared/command')
     end
-
-    complete ? congrats : render partial: 'shared/command', status: 200
-
   end
 
   def congrats
@@ -28,18 +26,10 @@ class CommandsController < ApplicationController
 
   private
 
-
-  def next_command
-    commands[next_index]
+  def save_command_if_completed_on_time
+    current_user.save_command(command) if params[:mastered]
   end
 
-  def current_index
-    commands.index(command)
-  end
 
-  def next_index
-    new_index = current_index + 1
-    new_index < (commands.size) ? new_index : 0
-  end
 
 end

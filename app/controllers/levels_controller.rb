@@ -9,6 +9,10 @@ class LevelsController < ApplicationController
   expose(:next_level) { level.next_level }
   expose(:question_number) { 1 }
 
+  def show
+    @command = commands.first
+  end
+
   def congrats
     @show_congrats = true
     render :show

@@ -1,4 +1,3 @@
-
 var keystrokes = $.map($('.success').attr("data-attribute-keystroke").split("or"), $.trim);
 var keys_pressed_div = $('#keys_pressed');
 var user_text = '';
@@ -53,6 +52,7 @@ function success_command() {
   $('.success').show();
   $('.error').hide();
   stop_timer();
+  unbind_delete();
   unbind_mousetrap();
   Mousetrap.bind("enter", function() { next_command(); return false; });
 }
@@ -62,6 +62,7 @@ function next_command() {
   start_timer();
   unbind_enter();
   replace_question();
+  bind_delete();
   capture_keypress = true;
 }
 

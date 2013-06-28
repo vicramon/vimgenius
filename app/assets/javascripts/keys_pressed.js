@@ -4,7 +4,16 @@ var correct_keystroke = $('.success').attr("data-attribute-keystroke").replace(/
 var capture_keypress = true
 
 Mousetrap.bind("escape", function() { reset_keys_pressed(); return false; });
-Mousetrap.bind("backspace", function() { delete_last_key_press(); return false; });
+
+bind_delete();
+
+function bind_delete() {
+  Mousetrap.bind("backspace", function() { delete_last_key_press(); return false; });
+}
+
+function unbind_delete() {
+  Mousetrap.bind("backspace", function() { return false; });
+}
 
 document.onkeypress = function(event) {
   if (capture_keypress) {

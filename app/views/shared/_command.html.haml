@@ -2,30 +2,31 @@
   %header
     %hgroup
       %h2= lesson.name
-      %h1= command.name
+      %h1= @command.name
 
     .hint
       %p For a hint, press the right arrow key
       .rightarrow
 
     .terminal
-      %h1 Question #{question_number}
+      %h1
+        = level.name
 
       .entry
         #keys_pressed
 
         .show_hint
-          - command.keystroke_split.each do |key|
+          - @command.keystroke_split.each do |key|
             %span.hidden_hint= key
 
         .details
-          %p.mode= command.capital_start_mode
+          %p.mode= @command.capital_start_mode
           %p.timer :00
 
-    .success{ data: { attribute: { keystroke: command.keystroke,
-                                   "next-command-url" => lesson_level_command_path(lesson, level, next_command) }}}
+    .success{ data: { attribute: { keystroke: @command.keystroke,
+                                   "next-command-url" => lesson_level_command_path(lesson, level, @command) }}}
 
-      %p= "#{command.keystroke_pretty} is correct! Press Enter or click Next to continue."
+      %p= "#{@command.keystroke_pretty} is correct! Press Enter or click Next to continue."
       = link_to "Next", "#", class: "sm_button next"
 
     .error

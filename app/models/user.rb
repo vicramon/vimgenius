@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     self.commands << command
   end
 
+  def mastered_commands_for_level(level)
+    Command.select("commands.id, count(commands.id) as command_count").joins(:users).where("users.id = #{self.id}").group("commands.id").having("count(commands.id) >= #{Command::MASTERY_NUMBER}")
+  end
+
+  def commands_remaining_for_level(level)
+    level.commands - self.mastered_commands_for_level(level)
+  end
+
   def last_congrats_path
     level = self.levels.last
     if level
