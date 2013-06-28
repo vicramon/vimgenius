@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     self.levels << level unless self.levels.include?(level)
   end
 
+  def save_command(command)
+    self.commands << command
+  end
+
   def last_congrats_path
     level = self.levels.last
     if level

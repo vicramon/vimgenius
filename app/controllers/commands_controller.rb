@@ -12,7 +12,7 @@ class CommandsController < ApplicationController
     complete = false
 
     if params[:mastered]
-      # do stufffz
+      User.save_command(command)
     end
 
     complete ? congrats : render partial: 'shared/command', status: 200
