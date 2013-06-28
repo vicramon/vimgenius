@@ -10,6 +10,5 @@ Feature: Lesson flow
     And I type "c2w"
     And I click to view the next command
     And I type "cw"
-    And I view
     And I click to view the next command
     Then I see "Recap" on the page
