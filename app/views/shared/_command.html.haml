@@ -23,9 +23,7 @@
           %p.timer :00
 
     .success{ data: { attribute: { keystroke: command.keystroke,
-                                   "next-command-url" => lesson_level_command_path(lesson, level, next_command),
-                                   current_cycle: current_cycle }}}
-
+                                   "next-command-url" => lesson_level_command_path(lesson, level, next_command) }}}
 
       %p= "#{command.keystroke_pretty} is correct! Press Enter or click Next to continue."
       = link_to "Next", "#", class: "sm_button next"

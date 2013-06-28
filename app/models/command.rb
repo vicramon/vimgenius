@@ -4,6 +4,8 @@ class Command < ActiveRecord::Base
   validates :start_mode, presence: true
   belongs_to :level
 
+  has_and_belongs_to_many :users
+
   default_scope -> { order("id asc") }
 
   START_MODES = ["Normal Mode", "Insert Mode", "Visual Mode", "Visual Block Mode", "Visual Line Mode"]

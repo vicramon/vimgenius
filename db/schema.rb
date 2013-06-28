@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130628182314) do
+ActiveRecord::Schema.define(version: 20130628190029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20130628182314) do
   end
 
   add_index "commands", ["level_id"], name: "index_commands_on_level_id", using: :btree
+
+  create_table "commands_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "command_id"
+  end
+
+  add_index "commands_users", ["command_id"], name: "index_commands_users_on_command_id", using: :btree
+  add_index "commands_users", ["user_id"], name: "index_commands_users_on_user_id", using: :btree
 
   create_table "lessons", force: true do |t|
     t.string "name"

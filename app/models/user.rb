@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   has_and_belongs_to_many :levels
+  has_and_belongs_to_many :commands
 
   def save_level(level)
     self.levels << level unless self.levels.include?(level)
