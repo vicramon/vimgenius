@@ -6,7 +6,6 @@ end
 
 And /^I click to view the next command$/ do
   click_link "Next"
-  sleep 0.1
 end
 
 And /^I hit the enter key$/ do
