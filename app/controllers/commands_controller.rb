@@ -7,6 +7,7 @@ class CommandsController < ApplicationController
   expose(:next_command) { next_command }
   expose(:current_cycle) { cycle }
   expose(:next_level) { level.next_level }
+  expose(:question_number) { current_index+1 }
 
   def show
     if cycle == cycles_till_completion
