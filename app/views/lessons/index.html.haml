@@ -4,15 +4,7 @@
   %p Test your skills in straight-up Vim and also with various Vim plugins.
 
   %ul.border
-    %li
-      %h1= link_to "Vim Intro", intro_lesson_path
-      %p Our original course offers testing corresponding to what you'll learn in VimTutor. It&rsquo;s highly recommended you use VimTutor along with this lesson.
-    %li
-      %h1= link_to "Vim with a Million Plugins", "#"
-      %p
-        Recommended for more advanced users. Get faster at commands you use with plugins like
-        = succeed('.') do
-          = link_to "Example 1", "#"
-    %li
-      %h1= link_to "Other Stuff", "#"
-      %p For when Vim is just too difficult (which is ALWAYS).
+    - lessons.each do |lesson|
+      %li
+        %h1= link_to lesson.name, lesson_path(lesson)
+        %p Our original course offers testing corresponding to what you'll learn in VimTutor. It&rsquo;s highly recommended you use VimTutor along with this lesson.
