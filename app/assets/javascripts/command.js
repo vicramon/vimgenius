@@ -73,10 +73,23 @@ function current_cycle() {
   return $('.success').attr("data-attribute-current-cycle");
 }
 
+function timer_count() {
+  numbers = $('p.timer').text();
+  return parseInt(numbers.slice(-2));
+}
+
+function under_5_seconds() {
+  if (timer_count() <= 5) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function replace_question() {
   $.ajax({
     url: $('.success').attr("data-attribute-next-command-url"),
-    data: { current_cycle: current_cycle() },
+    data: { current_cycle: current_cycle(), mastered: under_5_seconds() },
     type: 'GET',
     success: function(response) {
       $('#command').replaceWith(response)

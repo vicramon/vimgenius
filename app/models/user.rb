@@ -4,9 +4,18 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   has_and_belongs_to_many :levels
+  has_and_belongs_to_many :commands
 
   def save_level(level)
     self.levels << level unless self.levels.include?(level)
+  end
+
+  def mastered_commands
+    self.commands.group("command_id").select("id, count(*) as count").having("count(*) >= ?", Command::MASTERY_NUMBER)
+  end
+
+  def mastered?(command)
+    self.commands.where(id: command.id).count >= Command::MASTERY_NUMBER
   end
 
   def last_congrats_path

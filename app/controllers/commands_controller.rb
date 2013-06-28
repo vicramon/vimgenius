@@ -3,18 +3,20 @@ class CommandsController < ApplicationController
   expose(:level) { lesson.levels.find_by_slug(params[:level_id]) }
   expose(:commands) { level.commands }
   expose(:command)
-
   expose(:next_command) { next_command }
-  expose(:current_cycle) { cycle }
   expose(:next_level) { level.next_level }
   expose(:question_number) { current_index+1 }
 
   def show
-    if cycle == cycles_till_completion
-      congrats
-    else
-      render partial: 'shared/command', status: 200
+
+    complete = false
+
+    if params[:mastered]
+      # do stufffz
     end
+
+    complete ? congrats : render partial: 'shared/command', status: 200
+
   end
 
   def congrats
@@ -26,14 +28,6 @@ class CommandsController < ApplicationController
 
   private
 
-  def cycles_till_completion
-    2
-  end
-
-  def cycle
-    current_cycle = params[:current_cycle].to_i
-    current_index == 0 ? current_cycle += 1 : current_cycle
-  end
 
   def next_command
     commands[next_index]
