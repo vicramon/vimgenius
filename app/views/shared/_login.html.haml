@@ -1,0 +1,19 @@
+.session
+
+  - if current_user.saved?
+    %form
+      %dt
+        %label
+          Welcome #{current_user.email}.
+          = link_to "Sign out", logout_path
+
+  - else
+    = form_tag(login_path, id: 'login') do
+      %fieldset
+        %dl
+          %dt
+            = label_tag "email", "Sign up or login with your email address"
+          %dd
+            = email_field_tag "email"
+      %fieldset.actions
+        = submit_tag "Sign In", id: 'login_submit'

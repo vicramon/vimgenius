@@ -5,6 +5,11 @@
 
 %section
   = render 'shared/level_list'
+
+  - if flash[:notice]
+    %article
+      .flash= flash[:notice]
+
   - if @show_congrats
     = render 'shared/congrats', command: command
   - else

@@ -4,6 +4,7 @@
     %title Vim Genius
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "login"
     = content_for(:head)
     = csrf_meta_tags
     /[if IE]
@@ -16,23 +17,6 @@
             Vim
             %span> Genius
         = link_to "Tutorial Index", lessons_path, class: "headerlink"
-        .session
-          - if signed_in?
-            %form
-              %dt
-                %label
-                  Welcome #{current_user.email}.
-                  = link_to "Sign out", logout_path
-          - else
-            = form_tag login_path do
-              %fieldset
-                %dl
-                  %dt
-                    = label_tag "email", "Sign up or login with your email address"
-                  %dd
-                    = email_field_tag "email"
-              %fieldset.actions
-                = submit_tag "Sign In"
-
+        = render 'shared/login'
     #content
       = yield

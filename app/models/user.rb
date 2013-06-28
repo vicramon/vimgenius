@@ -18,5 +18,22 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.create_temporary
+    user = User.create(password: 'password',
+                       password_confirmation: 'password',
+                       temporary: true,
+                       email: random_email)
+  end
+
+  def saved?
+    !self.temporary
+  end
+
+  private
+
+  def self.random_email
+    (0..50).map{ ('a'..'z').to_a[rand(26)] }.join + "@example.com"
+  end
+
 
 end

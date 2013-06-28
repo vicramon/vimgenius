@@ -1,7 +1,7 @@
 @lesson = Fabricate(:lesson,
           name: 'Vim Intro',
           summary: %q[
-            Our original course offers testing corresponding to what you'll learn in VimTutor. It’s highly recommended you use VimTutor along with this lesson.
+            This is an intro course designed to go along with Vim's built in tutorial program. If you're new to Vim then this is the lesson you want.
           ],
           directions: %q[
             This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You should pull up VimTutor and come back here to quiz yourself after each lesson.
