@@ -5,6 +5,7 @@ And /^I type "cw"$/ do
 end
 
 And /^I click to view the next command$/ do
+  sleep 1
   click_link "Next"
 end
 

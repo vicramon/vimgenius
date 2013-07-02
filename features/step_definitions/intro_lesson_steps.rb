@@ -9,6 +9,6 @@ end
 Given /^I have a vim intro lesson$/ do
   @lesson = Fabricate(:lesson, name: 'Vim Intro')
   @level  = Fabricate(:level, lesson: @lesson)
-  @command = Fabricate(:command, keystroke: 'c2w', level: @level)
+  @command = Fabricate(:command, keystroke: 'cw', level: @level)
   @command = Fabricate(:command, keystroke: 'cw', level: @level)
 end
