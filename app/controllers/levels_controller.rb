@@ -10,7 +10,13 @@ class LevelsController < ApplicationController
   expose(:question_number) { 1 }
 
   def show
-    @command = commands.first
+    commands = current_user.commands_remaining_for_level(level)
+
+    if commands.empty?
+      congrats
+    else
+      @command = commands.first
+    end
   end
 
   def congrats
