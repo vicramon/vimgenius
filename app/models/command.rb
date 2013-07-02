@@ -6,7 +6,7 @@ class Command < ActiveRecord::Base
 
   has_and_belongs_to_many :users
 
-  MASTERY_NUMBER = 3
+  MASTERY_NUMBER = 2
 
   START_MODES = ["Normal Mode", "Insert Mode", "Visual Mode", "Visual Block Mode", "Visual Line Mode"]
 
