@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20130628190029) do
 
   create_table "levels", force: true do |t|
     t.integer "lesson_id"
-    t.integer "sequence_number"
+    t.integer "number"
     t.string  "name"
     t.string  "slug"
     t.text    "intro"
@@ -71,14 +71,9 @@ ActiveRecord::Schema.define(version: 20130628190029) do
   add_index "user_lessons", ["user_id"], name: "index_user_lessons_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.string   "reset_password_token"
-    t.string   "session_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "temporary",            default: false
+    t.string  "name"
+    t.string  "email"
+    t.boolean "temporary", default: false
   end
 
 end
