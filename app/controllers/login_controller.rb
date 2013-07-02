@@ -1,22 +1,17 @@
 class LoginController < ApplicationController
 
   def create
-
-    # method to import completed stuff goes here
-
-    new_user = false
-    user = User.where(email: params[:email]).first_or_create do |user|
-      user.email = params[:email]
-      user.password = "password"
-      user.password_confirmation = "password"
-      new_user = true
+    user = User.where(email: params[:email]).first
+    if user
+      sign_out()
+      sign_in(user)
+    else
+      current_user.email = params[:email]
+      current_user.temporary = false
+      current_user.save
     end
-    sign_out()
-    sign_in(user)
 
     render partial: 'shared/login'
-    # redirect_to user.last_congrats_path, notice: flash_for_sign_in(new_user)
-
   end
 
   def destroy
