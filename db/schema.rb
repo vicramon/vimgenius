@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130628190029) do
+ActiveRecord::Schema.define(version: 20130702185837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130628190029) do
     t.text   "summary"
     t.string "slug"
     t.text   "directions"
+    t.text   "done_message"
   end
 
   create_table "levels", force: true do |t|

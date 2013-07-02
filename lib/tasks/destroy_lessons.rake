@@ -5,5 +5,6 @@ task :destroy_lessons => :environment do
   Level.destroy_all
   Command.destroy_all
   UserLesson.destroy_all
+  UserCommand.destroy_all
 
 end

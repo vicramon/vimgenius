@@ -6,11 +6,8 @@
 
   - else
 
-    %h1 You're done with the #{lesson.name} Lesson. Way to go kid!
-    I'm real proud of ya. You've just laid the foundation for your Vim future.
-    %p
-    At this point you can start getting some real work done, or check out
-    = link_to 'some of our other lessons.', lessons_path
+    %h1 You're done with the #{lesson.name} Lesson. Way to go!
+    = lesson.done_message
     %br
     %br
     %br

@@ -1,10 +1,11 @@
-%section#tutindex
+%section
+  %article
 
-  %h1 Tutorial Index
-  %p Test your skills in straight-up Vim and also with various Vim plugins.
+    %h1 Tutorial Index
+    %p Test your skills in straight-up Vim and also with various Vim plugins.
 
-  %ul.border
-    - lessons.each do |lesson|
-      %li
-        %h1= link_to lesson.name, lesson_path(lesson)
-        %p Our original course offers testing corresponding to what you'll learn in VimTutor. It&rsquo;s highly recommended you use VimTutor along with this lesson.
+    %ul.border
+      - lessons.each do |lesson|
+        %li
+          %h1= link_to lesson.name, lesson_path(lesson)
+          %p= lesson.summary.html_safe
