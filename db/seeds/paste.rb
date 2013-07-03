@@ -1,7 +1,7 @@
 @lesson = Fabricate(:lesson,
           name: 'Vim Copy and Paste',
           summary: %q[
-            This lesson goes Vim's unique method of copy/paste.
+            This lesson goes over Vim's copy & paste functionality.
           ],
           directions: %q[
 When you yank OR delete something in Vim it goes into the `"` register. This is the default register. This can be a problem when you yank something, then delete something else, then try to paste what you originally yanked.
@@ -18,8 +18,6 @@ All of this will be tested in the upcoming level.
           ]
          )
 
-
-# fix control r issue
 @level_1_commands = {
   "yw"             => "Yank word",
   "yy"             => "Yank line",
@@ -28,14 +26,17 @@ All of this will be tested in the upcoming level.
   ":reg or :register" => "Show yank register",
   "\"0p"             => "Paste from 0 register",
   "\"ap"             => "Paste from \"a\" register",
-  'ctrl+r "'             => "Paste from insert mode",
+}
+
+@level_2_commands = {
+  'ctrl+r "'             => "Paste from default register in insert mode",
   'ctrl+r 0'             => "Paste from 0 register in insert mode",
   'ctrl+r a'             => "Paste from \"a\" register in insert mode",
 }
 
 
 
-1.upto(1) do |number|
+1.upto(2) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
 
