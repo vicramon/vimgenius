@@ -1,18 +1,17 @@
-__END__
-
 @lesson = Fabricate(:lesson,
           name: 'Vim Copy and Paste',
           summary: %q[
             This lesson goes Vim's unique method of copy/paste.
           ],
           directions: %q[
-            When you yank OR delete something in Vim it goes into the " register. This is the default register. This can be a problem when you yank something, then delete something else, then try to paste what you originally yanked.
-            <p>
-            To get to what you yanked, you will have to pull it from the yank register. The yank register goes from 0 to 9 and it functions like a stack. The most recent thing you yanked will be at 0, and the second most recent at 1, etc, all the way to 9.
-            <p>
-            You can also explicity name a register that you want to save yanked text to. You can use any character a-z. For example, to save something to the a register you would do "ayw .
-            <p>
-            All of this will be tested in the upcoming level.
+When you yank OR delete something in Vim it goes into the `"` register. This is the default register. This can be a problem when you yank something, then delete something else, then try to paste what you originally yanked.
+
+To get to what you yanked, you will have to pull it from the yank register. The yank register goes from 0 to 9 and it functions like a stack. The most recent thing you yanked will be at 0, and the second most recent at 1, etc, all the way to 9.
+
+You can also explicity name a register that you want to save yanked text to.
+You can use any character a-z. For example, to save something to the `a` register you would do `"ayw`.
+
+All of this will be tested in the upcoming level.
           ],
           done_message: %q[
             You did it! You are one more step on your way to becoming a Vim Genius.

@@ -1,7 +1,7 @@
 @lesson = Fabricate(:lesson,
           name: 'Rails Vim',
           summary: %q{
-            This lesson covers [rails.vim][https://github.com/tpop/vim-rails"], a plugin by Tim Pope.
+            This lesson covers <a href="https://github.com/tpop/vim-rails">rails.vim</a>, a plugin by Tim Pope.
           },
           directions: %q{If you use Rails, rails.vim is a must-know. It greatly simplifies navigation in a Rails app and it gives you many handy shortcuts.
 
@@ -39,12 +39,12 @@ Ok, I hope you got all that, 'cause here's the quiz.
 
 
 @level_1_commands = {
-  ":RVvi home/index.html.haml" => "Vertical split view home/index.html.haml",
-  ":RTco users" => "Open users controller in new tab",
-  ":Rfeature users" => "Open users cucumber feature",
+  ":RVvi home/index.html" => "Vertical split view home/index.html",
+  ":RTco users" => "Open new tab with users controller",
+  ":Rfeature users" => "Open cucumber feature \"users\"",
   ":RSsteps users" => "Horizontal split cucumber \"users\" steps",
   ":Rmo users" => "Open users model",
-  ":RTmo users" => "Open users model in new tab",
+  ":RTmo users" => "Open new tab with users model",
   ":RVco comments" => "Vertical split comments controller",
   ":AV"  => "Vertical split alternate file",
   "gf" => "Go to file under cursor"
