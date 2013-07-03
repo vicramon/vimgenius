@@ -5,7 +5,10 @@
 
     %h1 Before you start&hellip;
 
-    %p= lesson.directions.html_safe
+    #markdown
+      %p
+        :markdown
+          #{lesson.directions}
 
     .border_box.dark
       %h3 Up Next
