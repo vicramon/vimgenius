@@ -12,13 +12,11 @@ Here's the basic gist of it:
 * `:RS file_name` will do a horizontal split
 * `:RT file_name` will open the file in a new tab
 
-
 There are commands that will take you to specific directories:
 
 * `:Rview` or `Rvi` will give you views
 * `:Rcontroller` or `Rco` will give you controllers
 * `:Rmodel` or `Rmo` will give you models
-
 
 These commands can be paired to create the following:
 
@@ -37,22 +35,31 @@ Ok, I hope you got all that, 'cause here's the quiz.
           }
          )
 
-
 @level_1_commands = {
-  ":RVvi home/index.html" => "Vertical split view home/index.html",
-  ":RTco users" => "Open new tab with users controller",
-  ":Rfeature users" => "Open cucumber feature \"users\"",
-  ":RSsteps users" => "Horizontal split cucumber \"users\" steps",
   ":Rmo users" => "Open users model",
-  ":RTmo users" => "Open new tab with users model",
-  ":RVco comments" => "Vertical split comments controller",
+  ":Rco users" => "Open users controller",
+  ":Rvi users/index.html" => "Open view users/index.html",
   ":AV"  => "Vertical split alternate file",
   "gf" => "Go to file under cursor"
 }
 
+@level_2_commands = {
+  ":RVvi home/index.html" => "Vertical split view home/index.html",
+  ":RTco users" => "Open new tab with users controller",
+  ":RTmo users" => "Open new tab with users model",
+  ":RVco comments" => "Vertical split comments controller",
+}
+
+@level_3_commands = {
+  ":Rfeature users" => "Open users feature",
+  ":Rsteps users" => "Open users steps",
+  ":RVsteps users" => "Vertical split users steps",
+  ":RSsteps users" => "Vertical split users steps",
+}
 
 
-1.upto(1) do |number|
+
+1.upto(3) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
 
