@@ -27,9 +27,15 @@ class CommandsController < ApplicationController
   private
 
   def save_command_if_completed_on_time
-    current_user.save_command(command) if params[:mastered]
+    current_user.save_command(command) if params[:mastered].to_boolean
   end
 
-
-
 end
+
+  class String
+    def to_boolean
+      return true if self == true or self == "true"
+      return false if self == false or self == "false"
+    end
+  end
+
