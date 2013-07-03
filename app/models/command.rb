@@ -23,7 +23,7 @@ class Command < ActiveRecord::Base
   end
 
   def keystroke_pretty
-    keystroke.gsub!('or',' or ')
+    #keystroke.gsub!('or',' or ')
     keystroke
   end
 

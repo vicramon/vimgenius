@@ -1,4 +1,4 @@
-var keystrokes = $.map($('.success').attr("data-attribute-keystroke").split("or"), $.trim);
+var keystrokes = $.map($('.success').attr("data-attribute-keystroke").split(" or "), $.trim);
 var keys_pressed_div = $('#keys_pressed');
 var user_text = '';
 var mousetrap_list = ["escape", "ctrl"]
