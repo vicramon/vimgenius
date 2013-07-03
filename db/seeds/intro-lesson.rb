@@ -4,8 +4,9 @@
             This is an intro course designed to go along with Vim's built in tutorial program. If you're new to Vim then this is the lesson you want.
           ],
           directions: %q[
-            This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You should pull up VimTutor and come back here to quiz yourself after each lesson.
-            <p> To open VimTutor, just open a terminal and type <code>vimtutor</code>.
+This intro course is designed to go along with Vim's built in tutorial program, VimTutor. You should pull up VimTutor and come back here to quiz yourself after each lesson.
+
+To open VimTutor, just open a terminal and type `vimtutor`.
           ],
           done_message: %q[
             I'm real proud of ya. You've just laid the foundation for your Vim future.
