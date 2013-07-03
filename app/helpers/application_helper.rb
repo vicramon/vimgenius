@@ -12,6 +12,14 @@ module ApplicationHelper
     end
   end
 
+  def markdown_thing(text)
+    Redcarpet::Markdown.new(
+        Redcarpet::Render::HTML,
+        :autolink => true,
+        :space_after_headers => true
+    ).render(text)
+  end
+
   def left_half(array)
     split_array_in_half(array).first
   end
