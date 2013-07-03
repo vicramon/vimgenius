@@ -1,10 +1,11 @@
 !!! 5
 %html
   %head
-    %title Vim Genius
+    %title VimGenius
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = javascript_include_tag "login"
+    = javascript_include_tag "detect_vimium"
     = content_for(:head)
     = csrf_meta_tags
     /[if IE]
@@ -19,4 +20,7 @@
         = link_to "Tutorial Index", lessons_path, class: "headerlink"
         = render 'shared/login'
     #content
+      #vimium_warning
+        .error
+          Hey! You've got Vimium enabled, which will break VimGenius. Please disable it or add http*://vimgenius.com/* to your exluded URLs.
       = yield
