@@ -1,7 +1,7 @@
 @lesson = Fabricate(:lesson,
           name: 'Rails Vim',
           summary: %q{
-            This lesson covers <a href="https://github.com/tpop/vim-rails">rails.vim</a>, a plugin by Tim Pope.
+            This lesson covers Rails Vim, a plugin by Tim Pope.
           },
           directions: %q{If you use Rails, rails.vim is a must-know. It greatly simplifies navigation in a Rails app and it gives you many handy shortcuts.
 
