@@ -58,8 +58,6 @@ function success_command() {
 }
 
 function next_command() {
-  reset_timer();
-  start_timer();
   unbind_enter();
   replace_question();
   bind_delete();
@@ -93,7 +91,9 @@ function replace_question() {
     data: { current_cycle: current_cycle(), mastered: under_5_seconds() },
     type: 'GET',
     success: function(response) {
-      $('#command').replaceWith(response)
+      $('#command').replaceWith(response);
+      reset_timer();
+      start_timer();
     },
     error: function() {
       console.log('Ajax error')
