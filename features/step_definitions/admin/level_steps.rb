@@ -4,11 +4,12 @@ When(/^I fill in the level form$/) do
 end
 
 Then(/^I am on that level's edit page$/) do
-  expect(current_path).to eq edit_admin_lesson_level_path(@lesson, Level.last)
+  @level = Level.last
+  expect(current_path).to eq edit_admin_lesson_level_path(@lesson, @level)
 end
 
 Then(/^that level is in the database$/) do
-  expect(Level.last.name).to eq "Level 1"
+  expect(@level.name).to eq "Level 1"
 end
 
 Given(/^I have a level$/) do

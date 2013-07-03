@@ -9,3 +9,4 @@ Feature: Lesson flow
     When I follow "Start Level 1"
     And I type "cw"
     And I click to view the next command
+    And I clear the database

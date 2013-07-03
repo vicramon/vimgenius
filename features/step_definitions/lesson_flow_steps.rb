@@ -1,3 +1,9 @@
+And /^I clear the database$/ do
+  Lesson.destroy_all
+  Level.destroy_all
+  Command.destroy_all
+end
+
 And /^I type "cw"$/ do
   press_key(99)
   press_key(119)
