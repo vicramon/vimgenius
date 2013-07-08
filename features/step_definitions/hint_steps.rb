@@ -3,7 +3,7 @@ Given(/^I go to the vim intro lesson page$/) do
 end
 
 When(/^I press the right arrow key$/) do
-  script = "e = $.Event('keydown'); e.keyCode = 39; $('body').trigger(e);"
+  script = "e = $.Event('keyup'); e.keyCode = e.which = 39; $('body').trigger(e);"
   page.execute_script(script)
 end
 

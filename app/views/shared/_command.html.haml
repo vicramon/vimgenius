@@ -21,7 +21,7 @@
 
         .details
           %p.mode= @command.capital_start_mode
-          %p.timer :00
+          %p.timer 0:00
 
     .success{ data: { attribute: { keystroke: @command.keystroke,
                                    "next-command-url" => lesson_level_command_path(lesson, level, @command) }}}
@@ -43,6 +43,3 @@
       //    margin:0;
       //  }
       */
-
-    = javascript_include_tag "keys_pressed"
-    = javascript_include_tag "command"

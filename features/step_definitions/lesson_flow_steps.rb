@@ -30,17 +30,17 @@ end
 
 
 def trigger_keyup
-  script = "e = $.Event('keyup'); e.keyCode= 13; $('body').trigger(e);"
+  script = "e = $.Event('keyup'); e.keyCode = e.which = 13; $('body').trigger(e);"
   page.execute_script(script)
 end
 
 
 def press_key(key_code)
-  script = "e = $.Event('keypress'); e.keyCode = #{key_code}; $('body').trigger(e);"
+  script = "e = $.Event('keypress'); e.keyCode = e.which = #{key_code}; $('body').trigger(e);"
   page.execute_script(script)
 end
 
 def press_enter
-  script = "e = $.Event('keydown'); e.keyCode = 13; $('body').trigger(e);"
+  script = "e = $.Event('keyup'); e.keyCode = e.which = 13; $('body').trigger(e);"
   page.execute_script(script)
 end
