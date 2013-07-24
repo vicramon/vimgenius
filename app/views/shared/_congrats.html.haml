@@ -44,4 +44,6 @@
           %dd= command.name
 
     = link_to "Start #{next_level.name}", lesson_level_path(lesson, next_level), class: "button"
+    &nbsp;
+    = link_to "Redo #{level.name}", restart_lesson_level_path(lesson, level), class: "gray_button"
 

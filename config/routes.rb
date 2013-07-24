@@ -9,6 +9,7 @@ VimGenius::Application.routes.draw do
     resources :levels, only: :show do
       member do
         get 'congrats'
+        get 'restart'
       end
       resources :commands, only: :show
     end
