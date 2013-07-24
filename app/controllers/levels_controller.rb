@@ -21,4 +21,9 @@ class LevelsController < ApplicationController
     render :show
   end
 
+  def restart
+    current_user.commands.delete(current_user.commands.where(level: level))
+    redirect_to lesson_level_path(lesson, level)
+  end
+
 end

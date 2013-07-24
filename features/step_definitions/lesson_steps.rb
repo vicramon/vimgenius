@@ -26,3 +26,11 @@ end
 When(/^I click on that lesson$/) do
   click_link @lesson.name
 end
+
+Then /^I see the lesson completed page$/ do
+  expect(page).to have_content("You're done")
+end
+
+Then /^I am on the command prompt page$/ do
+  expect(page).to have_content "For a hint"
+end

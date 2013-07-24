@@ -7,13 +7,21 @@ And /^I clear the database$/ do
 end
 
 And /^I type "cw"$/ do
+  sleep 2
   press_key(99)
   press_key(119)
   trigger_keyup
 end
 
+And /^I type "dw"$/ do
+  expect(page).to have_content "delete word"
+  press_key(100)
+  press_key(119)
+  trigger_keyup
+end
+
 And /^I click to view the next command$/ do
-  sleep 1
+  expect(page).to have_link("Next")
   click_link "Next"
 end
 
