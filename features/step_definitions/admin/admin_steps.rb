@@ -1,6 +1,6 @@
 Given /^I am signed in as an admin$/ do
   visit admin_login_path
-  fill_in :password, with: 'vimgenius'
+  fill_in :password, with: 'vimmaster'
   click_button 'Login'
 end
 
