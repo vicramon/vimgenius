@@ -77,8 +77,8 @@ function timer_count() {
   return parseInt(numbers.slice(-2));
 }
 
-function under_5_seconds() {
-  if (timer_count() <= 5) {
+function under_15_seconds() {
+  if (timer_count() <= 15) {
     return true;
   } else {
     return false;
@@ -88,7 +88,7 @@ function under_5_seconds() {
 function replace_question() {
   $.ajax({
     url: $('.success').attr("data-attribute-next-command-url"),
-    data: { current_cycle: current_cycle(), mastered: under_5_seconds() },
+    data: { current_cycle: current_cycle(), mastered: under_15_seconds() },
     type: 'GET',
     success: function(response) {
       $('#command').replaceWith(response);
