@@ -4,6 +4,20 @@ var user_text = '';
 var mousetrap_list = ["escape", "ctrl"]
 
 apply_mousetrap_if_needed();
+intercept_ctrl_r();
+
+function intercept_ctrl_r () {
+  if (contains(keystrokes, ["ctrl+r"])) {
+    $("body").on("keydown", function (e) {
+      if (e.ctrlKey && e.keyCode == 82) {
+        success_command();
+        event.keyCode = 0;
+        event.cancelBubble = true;
+        return false;
+      }
+    });
+  }
+}
 
 $(document).keyup( function() {
   user_text = keys_pressed();
@@ -101,4 +115,3 @@ function replace_question() {
   });
   return false;
 }
-
