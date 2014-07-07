@@ -26,7 +26,6 @@ Here's a quick recap:
           ]
          )
 
-
 # fix control r issue
 @level_1_commands = {
   "qq" => "Start recording macro in \"q\" register",
@@ -35,10 +34,6 @@ Here's a quick recap:
   ":normal @q" => "Play \"q\" macro across visual selection",
 }
 
-
-
 1.upto(1) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-
-

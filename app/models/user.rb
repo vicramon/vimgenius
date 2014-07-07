@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   end
 
   def mastered_commands_for_level(level)
-    Command.select("commands.id, count(commands.id) as command_count").joins(:users).where("users.id = #{self.id}").group("commands.id").having("count(commands.id) >= #{Command::MASTERY_NUMBER}")
+    Command.select("commands.id, count(commands.id) as command_count").joins(:users)
+      .where("users.id = #{self.id}").group("commands.id").having("count(commands.id) >= #{Command::MASTERY_NUMBER}")
   end
 
   def commands_remaining_for_level(level)
@@ -32,10 +33,11 @@ class User < ActiveRecord::Base
   end
 
   def self.create_temporary
-    user = User.create(password: 'password',
-                       password_confirmation: 'password',
-                       temporary: true,
-                       email: random_email)
+    user = User.create(
+      password: 'password',
+      password_confirmation: 'password',
+      temporary: true,
+      email: random_email)
   end
 
   def saved?
@@ -47,6 +49,5 @@ class User < ActiveRecord::Base
   def self.random_email
     (0..50).map{ ('a'..'z').to_a[rand(26)] }.join + "@example.com"
   end
-
 
 end

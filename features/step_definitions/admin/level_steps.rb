@@ -23,4 +23,3 @@ end
 Given /^I go to edit that level$/ do
   visit edit_admin_lesson_level_path(@lesson, @level)
 end
-

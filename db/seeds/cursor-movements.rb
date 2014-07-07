@@ -36,9 +36,6 @@ This lesson will test your knowledge of Vim motions.
   ")" => "Next sentence",
 }
 
-
 1.upto(3) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-
-

@@ -108,5 +108,3 @@ To open VimTutor, just open a terminal and type `vimtutor`.
 1.upto(7) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-
-

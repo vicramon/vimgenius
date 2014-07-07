@@ -57,9 +57,6 @@ Ok, I hope you got all that, 'cause here's the quiz.
   ":RSsteps users" => "Vertical split users steps",
 }
 
-
-
 1.upto(3) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-

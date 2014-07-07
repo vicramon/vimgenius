@@ -34,10 +34,6 @@ All of this will be tested in the upcoming level.
   'ctrl+r a'             => "Paste from \"a\" register in insert mode",
 }
 
-
-
 1.upto(2) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-
-

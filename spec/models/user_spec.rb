@@ -57,8 +57,6 @@ describe User do
       expect(subject.first).to eq unmastered_command
     end
 
-
   end
-
 
 end

@@ -1,9 +1,10 @@
-@lesson = Fabricate(:lesson,
-          name: 'Vim Arglist',
-          summary: %q[
+@lesson = Fabricate(
+  :lesson,
+  name: 'Vim Arglist',
+  summary: %q[
             This lesson goes over Vim's arglist functionality.
-          ],
-          directions: %q[
+  ],
+    directions: %q[
 Arglist is a feature of Vim that lets you specify a set of files then run commands on those files.
 
 This can be especially useful for doing search and replace across multiple files or directories.
@@ -18,11 +19,11 @@ Here are some of the common arglist commands you'll want to know:
 * `:argdelete` or `:argd` to remove files from your arglist
 * `:argdo update` to save all changes to your arglist
 * `:argdo undo` to undo changes to your arglist
-          ],
-          done_message: %q[
-            You did it! You are one more step on your way to becoming a Vim Genius.
-          ]
-         )
+  ],
+    done_message: %q[
+    You did it! You are one more step on your way to becoming a Vim Genius.
+  ]
+)
 
 @level_1_commands = {
   ":arg" => "View arglist",
@@ -36,5 +37,3 @@ Here are some of the common arglist commands you'll want to know:
 1.upto(1) do |number|
   create_commands(create_level(@lesson, number), instance_variable_get("@level_#{number}_commands"))
 end
-
-
