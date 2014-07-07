@@ -1,6 +1,5 @@
 $(function() {
 
-
   $(document).keydown( function(event) {
     if (event.keyCode == 39) {
       showHint();

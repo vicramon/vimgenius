@@ -1,6 +1,5 @@
 // Detect the Vimium Chrome extension by Evan Hahn (evanhahn.com)
 
-
 ;(function(doc) {
 
   doc.hasVimium = function() {
@@ -27,8 +26,6 @@
   };
 
 })(document);
-
-
 
 document.onDetectVimium(function() {
   $('#vimium_warning').show()

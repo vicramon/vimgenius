@@ -1,24 +1,23 @@
-
 var seconds = 0;
 var minutes = 0;
-var timer_interval;
+var timerInterval;
 
-function start_timer() { timer_interval = window.setInterval(count_seconds, 1000); }
+function startTimer() { timerInterval = window.setInterval(countSeconds, 1000); }
 
-function count_seconds() {
+function countSeconds() {
   seconds++;
   if (seconds > 59) {
     minutes++;
     seconds = 0;
   }
-  update_timer();
+  updateTimer();
 }
 
-function update_timer() {
-  $('p.timer').text(pad_with_zero(minutes) + ":" + pad_with_zero(seconds));
+function updateTimer() {
+  $('p.timer').text(padWithZero(minutes) + ":" + padWithZero(seconds));
 }
 
-function pad_with_zero(time) {
+function padWithZero(time) {
   if (time == 0) {
     return '';
   } else if (time.toString().length == 1) {
@@ -28,17 +27,13 @@ function pad_with_zero(time) {
   }
 }
 
-function reset_timer() {
+function resetTimer() {
   seconds = 0;
   minutes = 0;
 }
 
-function stop_timer() {
-  clearInterval(timer_interval);
+function stopTimer() {
+  clearInterval(timerInterval);
 }
 
-
-start_timer();
-
-
-
+startTimer();

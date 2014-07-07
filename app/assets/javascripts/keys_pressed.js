@@ -1,51 +1,50 @@
+var keysPressedDiv = $('#keys_pressed');
+var correctKeystroke = $('.success').attr("data-attribute-keystroke").replace(/\s+/g, '');
+var captureKeypress = true
 
-var keys_pressed_div = $('#keys_pressed');
-var correct_keystroke = $('.success').attr("data-attribute-keystroke").replace(/\s+/g, '');
-var capture_keypress = true
+Mousetrap.bind("escape", function() { resetKeysPressed(); return false; });
 
-Mousetrap.bind("escape", function() { reset_keys_pressed(); return false; });
+bindDelete();
 
-bind_delete();
-
-function bind_delete() {
-  Mousetrap.bind("backspace", function() { delete_last_key_press(); return false; });
+function bindDelete() {
+  Mousetrap.bind("backspace", function() { deleteLastKeyPress(); return false; });
 }
 
-function unbind_delete() {
+function unbindDelete() {
   Mousetrap.bind("backspace", function() { return false; });
 }
 
 document.onkeypress = function(event) {
-  if (capture_keypress) {
-    display_keypress(event)
+  if (captureKeypress) {
+    displayKeypress(event)
   }
 }
 
-function display_keypress(event) {
+function displayKeypress(event) {
   event = event || window.event;
   var character = String.fromCharCode(event.keyCode);
-  keys_pressed_div.append(character);
-  reset_if_too_long();
+  keysPressedDiv.append(character);
+  resetIfTooLong();
 }
 
-function reset_if_too_long() {
-  var key_length = $.trim(keys_pressed_div.text()).length;
-  if (key_length > correct_keystroke.length + 2) {
-    reset_keys_pressed();
-    display_error();
+function resetIfTooLong() {
+  var keyLength = $.trim(keysPressedDiv.text()).length;
+  if (keyLength > correctKeystroke.length + 2) {
+    resetKeysPressed();
+    displayError();
   }
 }
 
-function reset_keys_pressed() {
-  keys_pressed_div.text('');
+function resetKeysPressed() {
+  keysPressedDiv.text('');
 }
 
-function delete_last_key_press() {
-  var current_text = keys_pressed_div.text();
-  keys_pressed_div.text(current_text.slice(0,-1));
+function deleteLastKeyPress() {
+  var currentText = keysPressedDiv.text();
+  keysPressedDiv.text(currentText.slice(0,-1));
 }
 
-function display_error() {
+function displayError() {
   $('.error').show();
 }
 

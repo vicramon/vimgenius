@@ -1,16 +1,16 @@
 var keystrokes = $.map($('.success').attr("data-attribute-keystroke").split(" or "), $.trim);
-var keys_pressed_div = $('#keys_pressed');
-var user_text = '';
-var mousetrap_list = ["escape", "ctrl"]
+var keysPressedDiv = $('#keys_pressed');
+var userText = '';
+var mousetrapList = ["escape", "ctrl"]
 
-apply_mousetrap_if_needed();
-intercept_ctrl_r();
+applyMousetrapIfNeeded();
+interceptCtrlR();
 
-function intercept_ctrl_r () {
+function interceptCtrlR () {
   if (contains(keystrokes, ["ctrl+r"])) {
     $("body").on("keydown", function (e) {
       if (e.ctrlKey && e.keyCode == 82) {
-        success_command();
+        successCommand();
         event.keyCode = 0;
         event.cancelBubble = true;
         return false;
@@ -20,94 +20,94 @@ function intercept_ctrl_r () {
 }
 
 $(document).keyup( function() {
-  user_text = keys_pressed();
+  userText = keysPressed();
   $.each(keystrokes, function (index, keystroke) {
-    if (user_text == keystroke) { success_command(); }
+    if (userText == keystroke) { successCommand(); }
   });
 });
 
-function apply_mousetrap_if_needed() {
-  if (mousetrap_required()) { bind_mousetrap(); }
+function applyMousetrapIfNeeded() {
+  if (mousetrapRequired()) { bindMousetrap(); }
 }
 
-function contains(string, look_up) {
+function contains(string, lookUp) {
   string = string.join();
-  var contains_special_key = false;
-  $.each(look_up, function(index, look_up_item) {
-    if (string.indexOf(look_up_item) != -1) { contains_special_key = true; }
+  var containsSpecialKey = false;
+  $.each(lookUp, function(index, lookUpItem) {
+    if (string.indexOf(lookUpItem) != -1) { containsSpecialKey = true; }
   });
-  return contains_special_key;
+  return containsSpecialKey;
 }
 
-function mousetrap_required() {
-  return contains(keystrokes, mousetrap_list)
+function mousetrapRequired() {
+  return contains(keystrokes, mousetrapList)
 }
 
-function bind_mousetrap() {
+function bindMousetrap() {
   $.each(keystrokes, function(index, keystroke) {
-    Mousetrap.bind(keystroke, function() { success_command(); });
+    Mousetrap.bind(keystroke, function() { successCommand(); });
   });
 }
 
-function unbind_mousetrap() {
+function unbindMousetrap() {
   $.each(keystrokes, function(index, keystroke) {
     Mousetrap.unbind(keystroke);
   });
 }
 
-function keys_pressed() {
-  return keys_pressed_div.text();
+function keysPressed() {
+  return keysPressedDiv.text();
 }
 
-$('a.next').click( function() { next_command(); return false; });
+$('a.next').click( function() { nextCommand(); return false; });
 
-function success_command() {
-  capture_keypress = false;
+function successCommand() {
+  captureKeypress = false;
   $('.success').show();
   $('.error').hide();
-  stop_timer();
-  unbind_delete();
-  unbind_mousetrap();
-  Mousetrap.bind("enter", function() { next_command(); return false; });
+  stopTimer();
+  unbindDelete();
+  unbindMousetrap();
+  Mousetrap.bind("enter", function() { nextCommand(); return false; });
 }
 
-function next_command() {
-  unbind_enter();
-  replace_question();
-  bind_delete();
-  capture_keypress = true;
+function nextCommand() {
+  unbindEnter();
+  replaceQuestion();
+  bindDelete();
+  captureKeypress = true;
 }
 
-function unbind_enter() {
+function unbindEnter() {
   Mousetrap.unbind('enter');
 }
 
-function current_cycle() {
+function currentCycle() {
   return $('.success').attr("data-attribute-current-cycle");
 }
 
-function timer_count() {
+function timerCount() {
   numbers = $('p.timer').text();
   return parseInt(numbers.slice(-2));
 }
 
-function under_15_seconds() {
-  if (timer_count() <= 15) {
+function under15Seconds() {
+  if (timerCount() <= 15) {
     return true;
   } else {
     return false;
   }
 }
 
-function replace_question() {
+function replaceQuestion() {
   $.ajax({
     url: $('.success').attr("data-attribute-next-command-url"),
-    data: { current_cycle: current_cycle(), mastered: under_15_seconds() },
+    data: { current_cycle: currentCycle(), mastered: under15Seconds() },
     type: 'GET',
     success: function(response) {
       $('#command').replaceWith(response);
-      reset_timer();
-      start_timer();
+      resetTimer();
+      startTimer();
     },
     error: function() {
       console.log('Ajax error')
