@@ -8,4 +8,4 @@ Feature: Lesson flow
     And I follow "I'm a beginner"
     When I follow "Start Level 1"
     And I type "cw"
-    And I click to view the next command
+    Then I should see the next button

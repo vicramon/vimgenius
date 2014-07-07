@@ -12,9 +12,8 @@ And /^I type "dw"$/ do
   trigger_keyup
 end
 
-And /^I click to view the next command$/ do
+Then 'I should see the next button' do
   expect(page).to have_link("Next")
-  click_link "Next"
 end
 
 And /^I hit the enter key$/ do
