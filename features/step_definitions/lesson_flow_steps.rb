@@ -1,11 +1,3 @@
-And /^I clear the database$/ do
-  # this shouldn't be necessary, but for some reason it causes other tests to
-  # fail if it's not here
-  Lesson.destroy_all
-  Level.destroy_all
-  Command.destroy_all
-end
-
 And /^I type "cw"$/ do
   sleep 2
   press_key(99)
