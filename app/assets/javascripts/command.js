@@ -5,11 +5,25 @@ var mousetrapList = ["escape", "ctrl"]
 
 applyMousetrapIfNeeded();
 interceptCtrlR();
+interceptCtrlO();
 
 function interceptCtrlR () {
   if (contains(keystrokes, ["ctrl+r"])) {
     $("body").on("keydown", function (e) {
       if (e.ctrlKey && e.keyCode == 82) {
+        successCommand();
+        event.keyCode = 0;
+        event.cancelBubble = true;
+        return false;
+      }
+    });
+  }
+}
+
+function interceptCtrlO () {
+  if (contains(keystrokes, ["ctrl+o"])) {
+    $("body").on("keydown", function (e) {
+      if (e.ctrlKey && e.keyCode == 79) {
         successCommand();
         event.keyCode = 0;
         event.cancelBubble = true;
