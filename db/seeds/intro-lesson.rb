@@ -68,7 +68,7 @@ To open VimTutor, just open a terminal and type `vimtutor`.
  "ctrl+o" => "Jump to previous location (jump back)",
  "ctrl+i" => "Jump to next location (jump forward)",
  "%" => "Go to matching parentheses or brackets",
- ":%s/bad/good" => "Replace bad with good in current line",
+ ":s/bad/good/g" => "Replace bad with good everywhere in current line",
  ":%s/hi/bye/g" => "Replace hi with bye in entire file",
  ":%s/x/y/gc" => "Replace x with y in entire file, prompt for changes",
 }
