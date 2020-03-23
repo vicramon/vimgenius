@@ -42,7 +42,7 @@ To open VimTutor, just open a terminal and type `vimtutor`.
   "3e"       =>  "Go to end of third word ahead",
   "d2w"     =>  "Delete two words",
   "dd"       =>  "Delete entire line",
-  "2dd"     =>  "Delete two lines",
+  "2dd or dj" =>  "Delete two lines",
   "u"         =>  "Undo last change",
   "U"         =>  "Undo changes on entire line",
   "ctrl+r"    =>  "Redo changes",
